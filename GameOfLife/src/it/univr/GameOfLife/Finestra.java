@@ -414,7 +414,9 @@ public class Finestra extends JFrame{
 						}
 					}
 			};
+		
 		// Assegno i listener al menù
+		
 		for (int i = 0; i < ActionListenerMenuItem0.length; ++i){
 			frame.menuItem0[i].addActionListener(ActionListenerMenuItem0[i]);
 		}
@@ -443,6 +445,7 @@ public class Finestra extends JFrame{
 	         nextGen();
 	     }
 	 };
+	 
 	private void start(){
 		gameStatus=true;
 		Thread appThread = new Thread() {
@@ -460,7 +463,6 @@ public class Finestra extends JFrame{
 		 }; appThread.start();
 	}
 	private void nextGen(){
-		
 		panel.nextGen(numOfThreads);
 		disegna();
 	}
@@ -477,9 +479,4 @@ public class Finestra extends JFrame{
 			Thread.sleep(milliseconds);
 		} catch (InterruptedException e) {}
 	}
-	
-	
-	
-	
-	
 }
