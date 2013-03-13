@@ -110,11 +110,14 @@ public class GameX extends JFrame {
 		/*Disegno i bottoni e le varie cose sotto e sopra */
 		
 		up = new JPanel();
-		
+		final Icon colorImage = new ImageIcon("Images/color.jpg");
+		JButton colorButton = new JButton(colorImage);
+		colorButton.setPreferredSize(new Dimension(30, 26));
 		up.add(buttons[0], JPanel.CENTER_ALIGNMENT);
 		up.add(buttons[1], JPanel.CENTER_ALIGNMENT);
 		up.add(buttons[2], JPanel.CENTER_ALIGNMENT);
 		up.add(buttons[3], JPanel.CENTER_ALIGNMENT);
+		up.add(colorButton, JPanel.CENTER_ALIGNMENT);
 		add(up, BorderLayout.NORTH);
 		
 		/*Creo i componenti per la parte sud*/
