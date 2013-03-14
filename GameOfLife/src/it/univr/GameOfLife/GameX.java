@@ -10,9 +10,12 @@ public class GameX extends JFrame {
 	private JPanel up, down;
 	private JMenuBar barraDeiMenu;
 	private JSlider slider;
-	JLabel numOfThreadLabel,contGenLabel;
-	
-	JMenu[] menu = {
+	private JLabel numOfThreadLabel,contGenLabel;
+	/*
+	 * Bisogna rendere private i menu
+	 * - Aggiungere i metodi necessari
+	 */
+	final JMenu[] menu = {
 			new JMenu("Menu"),//0
 			new JMenu("Game"),//1
 			new JMenu("Add"),//2
@@ -22,7 +25,7 @@ public class GameX extends JFrame {
 			new JMenu("?")//6
 	};
 	
-	JMenuItem[] 
+	final JMenuItem[] 
 		menuItem0 ={
 				new JMenuItem("Open"),//0
 				new JMenuItem("Save"),//1
@@ -51,15 +54,14 @@ public class GameX extends JFrame {
 				new JMenuItem("Spaceship") //17
 		},
 		menuItem6 = {
-			
-			new JMenuItem("?")//18
+				new JMenuItem("?")//18
 		};
 	
-	JButton[] buttons = {
-			new JButton("Start"),
-			new JButton("Pause"),
-			new JButton("Reset"),
-			new JButton("Next")
+	final JButton[] buttons = {
+				new JButton("Start"),
+				new JButton("Pause"),
+				new JButton("Reset"),
+				new JButton("Next")
 	};
 	
 	

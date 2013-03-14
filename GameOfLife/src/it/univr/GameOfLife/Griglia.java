@@ -16,10 +16,18 @@ public class Griglia extends JPanel {
 	private int actionListenerMode = -1;
 	
 	// implemento l'action listener per i pulsanti
-
+	/**
+	 * This method sets the value into ActionListenerMode, used for adding or killing cells.
+	 * @param actionListenerMode
+	 * The value -1 is for kill, 1~11 is for adding.
+	 */
 	public void setActionListenerMode(int actionListenerMode) {
 		this.actionListenerMode = actionListenerMode;
 	}
+	/**
+	 * This method is invoked for killing is adding cells, it uses
+	 * actionListenerMode that was setted by setActionListenerMode(int actionListenerMode).
+	 */
 	private ActionListener kill = new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -126,8 +134,9 @@ public class Griglia extends JPanel {
 				}
 	};
 	/**
-	 * Costruttore classe Grilia
-	 * @param campo Di tipo Core 
+	 * This method builds the grid.
+	 * @param campo
+	 * is used for taking information about length and settings of current game field.
 	 */
 	public Griglia(Core campo){
 		
@@ -156,9 +165,9 @@ public class Griglia extends JPanel {
 		}
 	}
 	/**
-	 * Setta il campo interno alla griglia con un campo.
-	 * Deve essere un'istanza di Core
+	 * This method is used for setting the game field.
 	 * @param campo
+	 * is used for taking information about length and settings of current game field.
 	 */
 	public void setCampo(Core campo){
 		this.campo = campo;
@@ -166,7 +175,8 @@ public class Griglia extends JPanel {
 		max = campo.getArray().length;
 	}
 	/**
-	 * Aggiorna il colore del campo
+	 * This method sets the color of the current grid, setting white on cells without life,
+	 * blue for cells with life and red for dead cells.
 	 */
 	public void setColor(){
 		
@@ -181,7 +191,7 @@ public class Griglia extends JPanel {
 		}
 	}
 	/**
-	 * Metodo di reset del campo
+	 * This method is used for resetting the current field, setting a clear grid.
 	 */
 	public void reset(){
 		this.campo.reset();
@@ -192,10 +202,20 @@ public class Griglia extends JPanel {
 				}
 			}
 	}
+	/**
+	 * This method is used for taking the next generation of current field.
+	 * @param numOfThreads
+	 * is used for setting the number of threads used for calculating the next generation.
+	 */
 	public void nextGen(int numOfThreads){
 		campo.nextGenerationThreads(numOfThreads);
 		this.array = campo.getArray();
 	}
+	/**
+	 * This method is used for taking information about current game field.
+	 * @return
+	 * returns the current field.
+	 */
 	public Core getCampo(){
 		return campo;
 	}

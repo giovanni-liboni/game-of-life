@@ -22,7 +22,15 @@ public class Finestra extends JFrame{
 		Y=50,
 		contGen=0;
 	private Container cont;
-	
+	final Runnable doNextGen = new Runnable() {
+	     public void run() {
+	         nextGen();
+	     }
+	 };
+	/**
+	 * This method is used for showing threads setter frame,
+	 * and then creates game main window
+	 */
 	public Finestra(){
 
 		/* Creo la finestra iniziale e aggiorno il numero di threads
@@ -67,6 +75,14 @@ public class Finestra extends JFrame{
 		cont.add(panel);
 		
 		frame.setVisible(true);
+		// Assegno i menù
+		assegnaMenu();
+		
+	} // fine costruttore Finestra
+	/**
+	 * Creates ActionListener and sets it on every button and menu item
+	 */
+	public void assegnaMenu(){
 		
 		/* Creo un array listener per il menù*/
 		
@@ -437,13 +453,13 @@ public class Finestra extends JFrame{
 			frame.buttons[i].addActionListener(ActionListenerButtons[i]);
 		}
 	}
-
-	final Runnable doNextGen = new Runnable() {
-	     public void run() {
-	         nextGen();
-	     }
-	 };
-	 
+	/**
+	 * Starting of game.
+	 * Sets gameStatus true, starts a new thread that contain
+	 * a runnable with a while cycle (while condition = gameStatus), increments contGen
+	 * updating setContGenLabel, sets sleep taking information from the slider and then
+	 * invokes doNextGen
+	 */
 	private void start(){
 		gameStatus=true;
 		Thread appThread = new Thread() {
@@ -460,18 +476,35 @@ public class Finestra extends JFrame{
 		     }
 		 }; appThread.start();
 	}
+	/**
+	 * This method generate the new generation on the current panel and then invokes the
+	 * method disegna()
+	 */
 	private void nextGen(){
 		panel.nextGen(numOfThreads);
 		disegna();
 	}
+	/**
+	 * This method is used for resetting the current panel, clearing it all.
+	 * It invokes reset() and repaint() on current panel
+	 */
 	private void reset(){
 		panel.reset();
 		panel.repaint();
 	}
+	/**
+	 * This method is used for drawing the current panel, using setColor() and repaint()
+	 * methods on current panel
+	 */
 	private void disegna(){
 		panel.setColor();
 		panel.repaint();
 	}
+	/**
+	 * This method is used for taking time on creating nextGen()
+	 * @param milliseconds
+	 * is taken from current value setted on slider
+	 */
 	private static void sleepFor(int milliseconds) {
 		try {
 			Thread.sleep(milliseconds);

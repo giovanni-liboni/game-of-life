@@ -1,7 +1,9 @@
 package it.univr.GameOfLife;
 
 public class Core {
+	
 	private int cellOff=0;
+	
 	private Cell first[][];
 	/** 
 	 * Crea un campo con n° threads, righe e colonne specificate come argomento
