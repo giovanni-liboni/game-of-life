@@ -3,7 +3,6 @@ package it.univr.GameOfLife;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
-
 import javax.swing.*;
 /*
  * Si pensa di cambiarla in JOptionPane

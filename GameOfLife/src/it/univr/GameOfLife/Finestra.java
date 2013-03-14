@@ -28,6 +28,7 @@ public class Finestra extends JFrame{
 		/* Creo la finestra iniziale e aggiorno il numero di threads
 		 * da usare
 		 */
+		
 		do{
 		str = JOptionPane.showInputDialog (
 				   "Numero di Threads (default 2)", 2);
@@ -48,9 +49,6 @@ public class Finestra extends JFrame{
 			}
 		}
 		while(numOfThreads < 0);
-		/* Creo il core */
-		
-	
 		
 		/* Creo il frame*/
 		
@@ -252,7 +250,7 @@ public class Finestra extends JFrame{
 					},
 					// chiude il programma	- 4
 						
-						new ActionListener(){
+				new ActionListener(){
 							@Override
 							public void actionPerformed(ActionEvent arg0) {
 								frame.dispose();
