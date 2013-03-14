@@ -95,15 +95,23 @@ public class Core {
 	/**
 	 * Funzione per l'uccisione della cellula
 	 * Se si vuole potrebbe ritornare un boolean se la cellula è già morta.
-	 * @param y Rows
-	 * @param x Columns
+	 * @param row Rows
+	 * @param column Columns
 	 */
-	public void uccidoCell(int y, int x){
-		if(first[y][x] != null){
-			first[y][x].setDeath(true);
-			first[y][x].setLife(false);
+	public void uccidoCell(int row, int column){
+		if(first[row][column] != null){
+			first[row][column].setDeath(true);
+			first[row][column].setLife(false);
 		}
 	}
+	public void killCell(int row, int column){
+		first[row][column].setLife(false);
+	}
+	
+	public void addCell(int row, int column){
+		first[row][column].setLife(true);
+	}
+	
 	public void nextGenerationThreads(int numOfThreads){
 		cellOff=0;
 		GenThreadsNextGeneration gen = new GenThreadsNextGeneration(numOfThreads, first);
