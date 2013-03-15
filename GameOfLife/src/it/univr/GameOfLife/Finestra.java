@@ -75,6 +75,7 @@ public class Finestra extends JFrame{
 		cont.add(panel);
 		
 		frame.setVisible(true);
+		
 		// Assegno i menù
 		assegnaMenu();
 		
@@ -132,6 +133,7 @@ public class Finestra extends JFrame{
 								for(int y=0; y< max;y++){
 									for(int x=0; x < max;x++){
 										array[y][x] = inStream.readBoolean();
+										System.out.println(array[y][x]);
 										inStream.readChar();
 									}
 								}
