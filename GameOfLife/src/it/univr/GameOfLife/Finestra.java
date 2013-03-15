@@ -133,12 +133,15 @@ public class Finestra extends JFrame{
 								for(int y=0; y< max;y++){
 									for(int x=0; x < max;x++){
 										array[y][x] = inStream.readBoolean();
-										System.out.println(array[y][x]);
 										inStream.readChar();
 									}
 								}
 								campo = new Core(array);
-								panel.setCampo(campo);
+								cont.remove(panel);
+								panel = new Griglia(campo);
+								cont.add(panel);
+								panel.setVisible(false);
+								panel.setVisible(true);
 							    frame.setContGenLabel(String.valueOf(contGen));
 								frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
 			                    gameStatus = false;
@@ -196,7 +199,7 @@ public class Finestra extends JFrame{
 								for(int x=0; x < max;x++){
 									
 									outStream.writeBoolean(campo.getArray()[y][x]);
-									outStream.writeChars(";");
+									outStream.writeChar(';');
 								}
 							}
 							
