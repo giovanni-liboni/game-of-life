@@ -30,8 +30,14 @@ public class Finestra extends JFrame{
 		 * da usare
 		 */
 		do{
-			str = JOptionPane.showInputDialog ("Numero di Threads (default 2)", 2);
+			JOptionPane paneThreads = new JOptionPane();
+			JDialog diagThreads = paneThreads.createDialog("Let's start");
+			str = paneThreads.showInputDialog ("Numero di Threads (default 2)", 2);
+//			JOptionPane.getRootFrame().dispose();
 			try{
+				if (str == null) {
+				        System.exit(0);
+				}
 				int temp = Integer.parseInt(str);
 				if(temp > 0){
 					numOfThreads = temp;

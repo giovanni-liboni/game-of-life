@@ -21,7 +21,6 @@ public class ColorChanger extends JFrame{
 		changeContainer.setLayout(new GridLayout(3, 3));
 		JLabel[] chooseLabels = {new JLabel("Life",JLabel.CENTER), new JLabel("No Life",JLabel.CENTER), new JLabel("Death",JLabel.CENTER)};
 		final JButton[] chooseButtons = {new JButton(), new JButton(), new JButton(), new JButton("Random"), new JButton("Set")};
-//		chooseButtons[3].setVisible(false);
 		for(int pos=0;pos<chooseLabels.length;pos++)
 			changeContainer.add(chooseLabels[pos]);
 		for(int pos=0;pos<3;pos++){
