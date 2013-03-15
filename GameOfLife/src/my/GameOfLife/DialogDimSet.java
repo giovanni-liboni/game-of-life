@@ -44,21 +44,20 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		jp.add(btnOK);
 		jp.add(btnCancel);
 		getContentPane().add(jp,BorderLayout.SOUTH);
+		
 		jp.addKeyListener(new KeyListener(){
-			
 			@Override
 			public void keyTyped(KeyEvent e){
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
 						y_ = tf1.getText();
 						x_ = tf2.getText();
-						btnOK.doClick();
 						dispose();
 				 }
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				 if(e.getKeyCode() == e.VK_ENTER && tf1.getText()!=null && tf2.getText()!= null){
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER && tf1.getText()!=null && tf2.getText()!= null){
 						y_ = tf1.getText();
 						x_ = tf2.getText();
 						dispose();
@@ -67,7 +66,7 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				 if(e.getKeyCode() == e.VK_ENTER && tf1.getText()!=null && tf2.getText()!= null){
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER && tf1.getText()!=null && tf2.getText()!= null){
 						y_ = tf1.getText();
 						x_ = tf2.getText();
 						dispose();
@@ -79,8 +78,7 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		
 		}
 		
-		public void keyTyped(KeyEvent e) {	    
-		}
+		public void keyTyped(KeyEvent e) {}
 	       public void keyPressed(KeyEvent e) {}
 
 	    public void keyReleased(KeyEvent e) {}

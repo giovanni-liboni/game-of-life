@@ -14,20 +14,26 @@ public class Griglia extends JPanel {
 	private int max;
 	private Button[][] buttons;
 	private int actionListenerMode = -1;
-	private Color gridColor = Color.BLUE;
-	private Color lifeColor = Color.RED;
-	private Color deathColor = Color.WHITE;
+	private Color lifeColor = Color.BLUE;//case 1
+	private Color noLifeColor = Color.WHITE;//case 2
+	private Color deathColor = Color.RED;//case other
 	
-	public void setGridColor(int type, Color colorToSet){
-		switch(type){
-		case 1: this.gridColor = colorToSet;
-		case 2: this.lifeColor = colorToSet;
-		default: this.deathColor = colorToSet;
+	public Color getColor(int whatColor){
+		switch(whatColor){
+			case 0: return this.lifeColor;
+			case 1: return this.noLifeColor;
+			case 2: return this.deathColor;
+			default: return null;
 		}
 	}
-	
+	public void setGridColor(int whatColor, Color setSelectedColor){
+		switch(whatColor){
+			case 0: this.lifeColor = setSelectedColor;
+			case 1: this.noLifeColor = setSelectedColor;
+			case 2: this.deathColor = setSelectedColor;
+		}
+	}
 	// implemento l'action listener per i pulsanti
-
 	public void setActionListenerMode(int actionListenerMode) {
 		this.actionListenerMode = actionListenerMode;
 	}
@@ -160,7 +166,7 @@ public class Griglia extends JPanel {
 					buttons[y][x].setBackground(deathColor);
 				}
 				else
-					buttons[y][x].setBackground((array[y][x])? lifeColor : gridColor);
+					buttons[y][x].setBackground((array[y][x])? lifeColor : noLifeColor);
 				
 				this.add(buttons[y][x]);
 			}
@@ -187,7 +193,7 @@ public class Griglia extends JPanel {
 					buttons[y][x].setBackground(deathColor);
 				}
 				else
-					buttons[y][x].setBackground((array[y][x])? lifeColor : gridColor);
+					buttons[y][x].setBackground((array[y][x])? lifeColor : noLifeColor);
 				}
 		}
 	}
@@ -199,7 +205,7 @@ public class Griglia extends JPanel {
 		this.array = campo.getArray();
 			for(Button[] button: buttons){
 				for(Button button_: button){
-					button_.setBackground(gridColor);
+					button_.setBackground(noLifeColor);
 				}
 			}
 	}

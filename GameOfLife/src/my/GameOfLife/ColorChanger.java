@@ -1,130 +1,70 @@
 package my.GameOfLife;
 
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import java.awt.EventQueue;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JColorChooser;
+import java.awt.event.ActionListener;
+import java.util.Random;
 
-public class ColorChanger {
-    
-    JFrame guiFrame;
-    JTextArea tracker; 
-    JPanel optPanel;
-    
-    //Note: Typically the main method will be in a
-    //separate class. As this is a simple one class
-    //example it's all in the one class.
-    public static void main(String[] args) {
-     
-         //Use the event dispatch thread for Swing components
-         EventQueue.invokeLater(new Runnable()
-         {
-             
-            @Override
-             public void run()
-             {
-                 
-                 new ColorChanger();         
-             }
-         });
-              
-    }
-    
-    public ColorChanger()
-    {
-        guiFrame = new JFrame();
-        //make sure the program exits when the frame closes
-        guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        guiFrame.setTitle("Dialog Box Example");
-        guiFrame.setSize(500,300);
-        
-        //This will center the JFrame in the middle of the screen
-        guiFrame.setLocationRelativeTo(null);
-        
-        
-        guiFrame.setLayout(new BorderLayout());
-        
-        //Using a JTextArea to diplay feedback
-        tracker = new JTextArea("File Tracker:");
-        tracker.setVisible(true);
-        guiFrame.add(tracker, BorderLayout.NORTH);
-        
-        optPanel = new JPanel();
-        optPanel.setLayout(new GridLayout(1,2));
-        
-        guiFrame.add(optPanel,BorderLayout.SOUTH);
-        
-        //button for the show dialog method
-        JButton showButton = new JButton("Show Color Dialog");
-        showButton.setActionCommand("Show Color Dialog");
-        showButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent event)
-            {
-                Color selectedColor = JColorChooser.showDialog(guiFrame, "Pick a Color"
-                , Color.GREEN);
-                
-                if (selectedColor != null)
-                {
-                    tracker.append("\nThe selected color is make up of Red: " 
-                        + selectedColor.getRed() + " Blue: " + selectedColor.getBlue()
-                        + " Green: " + selectedColor.getGreen());
-                }
-            }
-        });
-        
-        optPanel.add(showButton);
-        
-        //button for the create dialog method
-        JButton createButton = new JButton("Create Color Dialog");
-        createButton.setActionCommand("Create Color Dialog");
-        createButton.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent event)
-            {
-                //this users a JColorchooser instance in combination
-                //with a JDialog to create a color chooser dialog. It's modeless
-                //and the OK and Cancel buttons can be listened to.
-                final JColorChooser colorChooser = new JColorChooser();
-                JDialog dialog = JColorChooser.createDialog(guiFrame, 
-                        "Set Text Area color", false, colorChooser
-                        , new ActionListener()
-                          {
-                              @Override
-                             public void actionPerformed(ActionEvent event)
-                             {
-                               //this actionListenerr is for the OK button
-                               tracker.append("\nI can feel my color being changed to "
-                                       + colorChooser.getColor());
-                               tracker.setBackground(colorChooser.getColor());
-                             }
-                          }
-                        , new ActionListener()
-                         {
-                             @Override
-                             public void actionPerformed(ActionEvent event)
-                             {
-                               //this actionListener is for the cancel button
-                               tracker.append("\nCancel button clicked..");
-                             } 
-                         }
-                        );
-                dialog.setVisible(true);
-            }
-        });
-        
-        optPanel.add(createButton);
-        
-        guiFrame.setVisible(true);
-        
-    }
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+@SuppressWarnings("serial")
+public class ColorChanger extends JFrame{
+	private JFrame changeColor = new JFrame("Choose your favorite color!");
+	private Container changeContainer = changeColor.getContentPane();
+
+	public ColorChanger(final Griglia panel){
+		changeColor.setBounds(50, 50, 300, 200);
+		changeColor.setDefaultCloseOperation(changeColor.DISPOSE_ON_CLOSE);
+		changeContainer.setLayout(new GridLayout(3, 3));
+		JLabel[] chooseLabels = {new JLabel("Life",JLabel.CENTER), new JLabel("No Life",JLabel.CENTER), new JLabel("Death",JLabel.CENTER)};
+		final JButton[] chooseButtons = {new JButton(), new JButton(), new JButton(), new JButton("Random"), new JButton("Set")};
+//		chooseButtons[3].setVisible(false);
+		for(int pos=0;pos<chooseLabels.length;pos++)
+			changeContainer.add(chooseLabels[pos]);
+		for(int pos=0;pos<3;pos++){
+			changeColor.add(chooseButtons[pos]);
+			final int pos3 = pos;
+			chooseButtons[pos].setBackground(panel.getColor(pos));
+			chooseButtons[pos].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Color selectedColor = JColorChooser.showDialog(changeColor, "Pick your favorite color", panel.getColor(0));
+					if (selectedColor != null)
+	                {
+						chooseButtons[pos3].setBackground(selectedColor);
+	                }
+				}
+			});
+			changeContainer.add(chooseButtons[3]);
+			chooseButtons[3].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Random random = new Random();
+					for(int pos=0; pos<3;pos++){
+						int r=random.nextInt(256), g=random.nextInt(256), b=random.nextInt(256);
+						chooseButtons[pos].setBackground(new Color(r,g,b));
+					}
+				}
+			});
+			changeContainer.add(chooseButtons[4]);
+			chooseButtons[4].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					for(int pos = 0; pos<3; pos++){
+						panel.setGridColor(pos, chooseButtons[pos].getBackground());
+						panel.setVisible(false);
+						panel.setVisible(true);
+						panel.setColor();
+						panel.repaint();
+						changeColor.dispose();
+					}
+				}
+			});
+//			changeContainer.add(chooseButtons[pos]);
+		}
+		
+		changeColor.setVisible(true);
+		
+	}
+	
 }

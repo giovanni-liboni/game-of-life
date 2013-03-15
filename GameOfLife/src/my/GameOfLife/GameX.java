@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class GameX extends JFrame {
 	
 	private JPanel up, down;
@@ -22,31 +23,32 @@ public class GameX extends JFrame {
 	};
 	
 	JMenuItem[] menuItem ={
-			new JMenuItem("Start"),//0
-			new JMenuItem("Modifica dimensioni(solo per sviluppo)"),//1
-			new JMenuItem("Modifica numero di Threads"),//2
-			new JMenuItem("Esci"),//3
-			new JMenuItem("Aggiungi per giovanni prova"),//4
-			new JMenuItem("Campo casuale"),//5
-			new JMenuItem("Blocks"),//6
-			new JMenuItem("Beehive"),//7
-			new JMenuItem("Loaf"),//8
-			new JMenuItem("Boat"),//9
-			new JMenuItem("Blinker"),//10
-			new JMenuItem("Toad"),//11
-			new JMenuItem("Beacon"),//12
-			new JMenuItem("Pulsar"),//13
-			new JMenuItem("Glider"),//14
-			new JMenuItem("Lightweight Spaceship"),//15
-			new JMenuItem("Spaceship"), //16
-			new JMenuItem("?"),//17
+			new JMenuItem("Open"),//0
+			new JMenuItem("Save"),//1
+			new JMenuItem("Modifica dimensioni(solo per sviluppo)"),//2
+			new JMenuItem("Modifica numero di Threads"),//3
+			new JMenuItem("Esci"),//4
+			new JMenuItem("Change Colour"),//5
+			new JMenuItem("Campo casuale"),//6
+			new JMenuItem("Blocks"),//7
+			new JMenuItem("Beehive"),//8
+			new JMenuItem("Loaf"),//9
+			new JMenuItem("Boat"),//10
+			new JMenuItem("Blinker"),//11
+			new JMenuItem("Toad"),//12
+			new JMenuItem("Beacon"),//13
+			new JMenuItem("Pulsar"),//14
+			new JMenuItem("Glider"),//15
+			new JMenuItem("Lightweight Spaceship"),//16
+			new JMenuItem("Spaceship"), //17
+			new JMenuItem("?"),//18
 		};
 	
 	JButton[] buttons = {
-			new JButton("Start"),
-			new JButton("Pause"),
-			new JButton("Reset"),
-			new JButton("Next")
+			new JButton("Start"),//0
+			new JButton("Pause"),//1
+			new JButton("Reset"),//2
+			new JButton("Next")//3
 	};
 	
 	
@@ -78,20 +80,21 @@ public class GameX extends JFrame {
 		menu[0].add(menuItem[1]);
 		menu[0].add(menuItem[2]);
 		menu[0].add(menuItem[3]);
-		menu[1].add(menuItem[4]);
+		menu[0].add(menuItem[4]);
 		menu[1].add(menuItem[5]);
-		menu[3].add(menuItem[6]);
+		menu[1].add(menuItem[6]);
 		menu[3].add(menuItem[7]);
 		menu[3].add(menuItem[8]);
 		menu[3].add(menuItem[9]);
-		menu[4].add(menuItem[10]);
+		menu[3].add(menuItem[10]);
 		menu[4].add(menuItem[11]);
 		menu[4].add(menuItem[12]);
 		menu[4].add(menuItem[13]);
-		menu[5].add(menuItem[14]);
+		menu[4].add(menuItem[14]);
 		menu[5].add(menuItem[15]);
 		menu[5].add(menuItem[16]);
-		menu[6].add(menuItem[17]);
+		menu[5].add(menuItem[17]);
+		menu[6].add(menuItem[18]);
 		
 		for(int pos=0;pos<menu.length;++pos){
 			if(pos==2||pos==3||pos==4||pos==5){
@@ -110,6 +113,7 @@ public class GameX extends JFrame {
 		/*Disegno i bottoni e le varie cose sotto e sopra */
 		
 		up = new JPanel();
+		
 		up.add(buttons[0], JPanel.CENTER_ALIGNMENT);
 		up.add(buttons[1], JPanel.CENTER_ALIGNMENT);
 		up.add(buttons[2], JPanel.CENTER_ALIGNMENT);
