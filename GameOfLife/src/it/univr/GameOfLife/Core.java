@@ -4,7 +4,7 @@ public class Core {
 	
 	private int cellOff=0;
 	
-	private Cell first[][];
+	private Cell[][] first;
 	/** 
 	 * Crea un campo con n° threads, righe e colonne specificate come argomento
 	 * @param numOfThreads
@@ -14,14 +14,13 @@ public class Core {
 	public Core(int numOfThreads, int rows, int columns){
 		GenThreadsCasualArray gen = new GenThreadsCasualArray(numOfThreads, rows, columns);
 		first = new Cell[gen.getArray().length][gen.getArray()[0].length];
-		arrayToCell(gen.getArray());
-		
+		arrayToCell(gen.getArray());		
 	}
 	/**
 	 * Costruttore con parametro un array di boolean
 	 * @param init
 	 */
-	public Core(boolean[][] init){
+	public Core(int numOfThreads, boolean[][] init){
 		first = new Cell[init.length][init[0].length];
 		arrayToCell(init);
 	}
@@ -109,7 +108,7 @@ public class Core {
 	}
 	
 	public void addCell(int row, int column){
-		first[row][column].setLife(true);
+		setLifeFirstTrue(row,column);
 	}
 	
 	public void nextGenerationThreads(int numOfThreads){
@@ -129,79 +128,59 @@ public class Core {
 		}
 	}
 	public void addShip(int x, int y){
-		if((y-2 >= 0 && y < first.length) && (x-2 >= 0 && x < first[0].length)){
-			
-			first[y][x].setLife(true);
-			first[y][x-2].setLife(true);
-			first[y][x-1].setLife(true);
-			first[y-1][x].setLife(true);
-			first[y-2][x-1].setLife(true);
-		}
+		setLifeFirstTrue(y,x);
+		setLifeFirstTrue(y,x-2);
+		setLifeFirstTrue(y,x-1);
+		setLifeFirstTrue(y-1,x);
+		setLifeFirstTrue(y-2,x-1);
 	}
 	public void addBlinkerHorizontal(int y, int x){
-		if((y >= 0 && y < first.length) && (x-1 >= 0 && x+1 < first[0].length)){
-			first[y][x].setLife(true);
-			first[y][x-1].setLife(true);
-			first[y][x+1].setLife(true);
-		}
+		setLifeFirstTrue(y,x+1);
+		setLifeFirstTrue(y,x-1);
+		setLifeFirstTrue(y,x);
 	}
-	public void addBlinkerVertical(int y, int x){
-		if((y-1 >= 0 && y+1 < first.length) && (x >= 0 && x < first[0].length)){
-			first[y][x].setLife(true);
-			first[y-1][x].setLife(true);
-			first[y+1][x].setLife(true);
-		}
+	public void addBlinkerVertical(int y, int x){		
+
+			setLifeFirstTrue(y+1,x);
+			setLifeFirstTrue(y-1,x);
+			setLifeFirstTrue(y,x);
 	}
 	public void addToad(int y, int x){
-		if((y-1 >= 0 && y < first.length) && (x-1 >= 0 && x < first[0].length)){
 			this.addBlinkerHorizontal(y, x);
 			this.addBlinkerHorizontal(y-1, x-1);
-		}
 	}
 	public void addBlock(int y, int x){
 		/*
 		 * Posiziona il blocco a partire dall'angolo in alto a sinistra
 		 */
-		if((y-1 >= 0 && y < first.length) && (x >= 0 && x+1 < first[0].length)){
-			first[y][x].setLife(true);
-			first[y][x+1].setLife(true);
-			first[y-1][x].setLife(true);
-			first[y-1][x+1].setLife(true);
-		}
+		setLifeFirstTrue(y,x);
+		setLifeFirstTrue(y,x+1);
+		setLifeFirstTrue(y-1,x);
+		setLifeFirstTrue(y-1,x+1);
 	}
 	public void addBeacon(int y, int x){
-		if((y-2 >= 0 && y < first.length) && (x >= 0 && x+2 < first[0].length)){
-			
+		
 			addBlock(y,x);
 			addBlock(y-2,x+2);
-		}
 	}
 	public void addBeehive(int y, int x){
-		if((y-1 >= 0 && y+1 < first.length) && (x-1 >= 0 && x+2 < first[0].length)){
-			
-			first[y][x-1].setLife(true);
-			first[y][x+2].setLife(true);
-			first[y-1][x].setLife(true);
-			first[y-1][x+1].setLife(true);
-			first[y+1][x].setLife(true);
-			first[y+1][x+1].setLife(true);
-		}
+		setLifeFirstTrue(y,x-1);
+		setLifeFirstTrue(y,x+2);
+		setLifeFirstTrue(y-1,x);
+		setLifeFirstTrue(y-1,x+1);
+		setLifeFirstTrue(y+1,x);
+		setLifeFirstTrue(y+1,x+1);
 	}
 	public void addLoaf(int y, int x){
-		if((y-2 >= 0 && y+1 < first.length) && (x-1 >= 0 && x+2 < first[0].length)){
-			
-			first[y][x-1].setLife(true);
-			first[y+1][x].setLife(true);
-			first[y-1][x].setLife(true);
-			first[y-1][x+1].setLife(true);
-			first[y-2][x+1].setLife(true);
-			first[y][x+2].setLife(true);
-			first[y-1][x+2].setLife(true);
-			
-		}
+		setLifeFirstTrue(y,x-1);
+		setLifeFirstTrue(y+1,x);
+		setLifeFirstTrue(y-1,x);
+		setLifeFirstTrue(y-1,x+1);
+		setLifeFirstTrue(y-2,x+1);
+		setLifeFirstTrue(y,x+2);
+		setLifeFirstTrue(y-1,x+2);		
 	}
 	public void addMyPulsar(int y, int x){
-		if((y-6 >= 0 && y+6 < first.length) && (x-6 >= 0 && x+6 < first[0].length)){
 			
 			this.addBlinkerHorizontal(y-1, x+3);
 			this.addBlinkerHorizontal(y-6, x+3);
@@ -223,44 +202,59 @@ public class Core {
 			this.addBlinkerVertical(y+3, x-1);
 			this.addBlinkerVertical(y+3, x-5);
 			
-			
-		}
 	}
-	public void addLightweight (int x, int y){
-		if((y-2 >= 0 && y+1 < first.length) && (x-1 >= 0 && x+2 < first[0].length)){
-			
-			first[y-1][x-2].setLife(true);
-			first[y-1][x+1].setLife(true);
-			first[y+1][x-2].setLife(true);
+	public void addLightweight (int x, int y){			
+			setLifeFirstTrue(y-1,x-2);
+			setLifeFirstTrue(y-1,x+1);
+			setLifeFirstTrue(y+1,x-2);
 			this.addBlinkerHorizontal(y+2, x);
 			this.addBlinkerVertical(y+1, x+2);
-			
-		}
+
 	}
-	public void addPulsar(int y, int x){
-		
-		if((y-6 >= 0 && y-6 < first.length) && (x-6 >= 0 && x+6 < first[0].length)){
-			this.addBlinkerHorizontal(y-1, x+3);
-			this.addBlinkerHorizontal(y-6, x+3);
-			this.addBlinkerVertical(y-3, x+1);
-			this.addBlinkerVertical(y-3, x+6);
+	public void addPulsar(int y_, int x_){
+
+			this.addBlinkerHorizontal(y_-1, x_+3);
+			this.addBlinkerHorizontal(y_-6, x_+3);
+			this.addBlinkerVertical(y_-3, x_+1);
+			this.addBlinkerVertical(y_-3, x_+6);
 			
-			this.addBlinkerHorizontal(y+1, x+3);
-			this.addBlinkerHorizontal(y+6, x+3);
-			this.addBlinkerVertical(y+3, x+1);
-			this.addBlinkerVertical(y+3, x+6);
+			this.addBlinkerHorizontal(y_+1, x_+3);
+			this.addBlinkerHorizontal(y_+6, x_+3);
+			this.addBlinkerVertical(y_+3, x_+1);
+			this.addBlinkerVertical(y_+3, x_+6);
 			
-			this.addBlinkerHorizontal(y-1, x-3);
-			this.addBlinkerHorizontal(y-6, x-3);
-			this.addBlinkerVertical(y-3, x-1);
-			this.addBlinkerVertical(y-3, x-6);
+			this.addBlinkerHorizontal(y_-1, x_-3);
+			this.addBlinkerHorizontal(y_-6, x_-3);
+			this.addBlinkerVertical(y_-3, x_-1);
+			this.addBlinkerVertical(y_-3, x_-6);
 			
-			this.addBlinkerHorizontal(y+1, x-3);
-			this.addBlinkerHorizontal(y+6, x-3);
-			this.addBlinkerVertical(y+3, x-1);
-			this.addBlinkerVertical(y+3, x-6);
-			
+			this.addBlinkerHorizontal(y_+1, x_-3);
+			this.addBlinkerHorizontal(y_+6, x_-3);
+			this.addBlinkerVertical(y_+3, x_-1);
+			this.addBlinkerVertical(y_+3, x_-6);
+	}
+	// columns
+	private int realX(int column){
+		if(column < 0){
+			return first[0].length + column;
 		}
+		if(column >= first[0].length){
+			return column - first[0].length;
+		}
+		return column;
+	}
+	// rows
+	private int realY(int row){
+		if(row < 0){
+			return first.length + row;
+		}
+		if(row >= first.length){
+			return row - first.length;
+		}
+		return row;	
+	}
+	private void setLifeFirstTrue(int y, int x){
+		first[realY(y)][realX(x)].setLife(true);
 	}
 	/*
 	 * metodi equals e hashCode

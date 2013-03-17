@@ -108,6 +108,8 @@ public class Finestra extends JFrame{
 							}
 							if(fileName == null){
 								dispose();
+								JOptionPane.showConfirmDialog(getParent(), "File non trovato", "Attenzione!", ERROR, ERROR);
+								
 							}
 							File f = c.getSelectedFile();
 							DataInputStream inStream;
@@ -130,36 +132,41 @@ public class Finestra extends JFrame{
 								inStream.readChar();
 								
 								array = new boolean[max][max];
+								
 								for(int y=0; y< max;y++){
 									for(int x=0; x < max;x++){
 										array[y][x] = inStream.readBoolean();
 										inStream.readChar();
 									}
 								}
-								campo = new Core(array);
+								
+								campo = new Core(numOfThreads, array);
 								cont.remove(panel);
 								panel = new Griglia(campo);
 								cont.add(panel);
 								panel.setVisible(false);
 								panel.setVisible(true);
+								
 							    frame.setContGenLabel(String.valueOf(contGen));
 								frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
-			                    gameStatus = false;
+			                    
+								gameStatus = false;
 								disegna();
-							}catch(EOFException e){
+							}
+							catch(EOFException e){
 								JOptionPane.showConfirmDialog(getParent(), "Caricamento completato");
 								
 							}
 		
 							inStream.close();
 							} catch (FileNotFoundException e) {
-								JOptionPane.showConfirmDialog(getParent(), "File non trovato", "Attenzione!", ERROR, ERROR);
+								JOptionPane.showConfirmDialog(getParent(), "File non trovato", "Attenzione!", ERROR);
 							} catch (IOException e) {
-								JOptionPane.showConfirmDialog(getParent(), "Caricamento non riuscito", "Attenzione!", ERROR, ERROR);
+								JOptionPane.showConfirmDialog(getParent(), "Caricamento non riuscito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 								
 							}
 								catch (Exception e) {
-							JOptionPane.showConfirmDialog(getParent(), "Caricamento fallito", "Attenzione!", ERROR, ERROR);
+							JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 							}
 					}
 				},
@@ -177,7 +184,9 @@ public class Finestra extends JFrame{
 						if(rVal == JFileChooser.CANCEL_OPTION) {
 							fileName = "";
 						}
-						
+						if(fileName == null){
+							dispose();
+						}
 						File f = c.getSelectedFile();
 						
 						try {
