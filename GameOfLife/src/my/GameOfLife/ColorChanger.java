@@ -20,7 +20,7 @@ public class ColorChanger extends JFrame{
 		changeColor.setDefaultCloseOperation(changeColor.DISPOSE_ON_CLOSE);
 		changeContainer.setLayout(new GridLayout(3, 3));
 		JLabel[] chooseLabels = {new JLabel("Life",JLabel.CENTER), new JLabel("No Life",JLabel.CENTER), new JLabel("Death",JLabel.CENTER)};
-		final JButton[] chooseButtons = {new JButton(), new JButton(), new JButton(), new JButton("Random"), new JButton("Set")};
+		final JButton[] chooseButtons = {new JButton(), new JButton(), new JButton(), new JButton("Random"), new JButton("Set"), new JButton("Default")};
 		for(int pos=0;pos<chooseLabels.length;pos++)
 			changeContainer.add(chooseLabels[pos]);
 		for(int pos=0;pos<3;pos++){
@@ -59,11 +59,18 @@ public class ColorChanger extends JFrame{
 					}
 				}
 			});
-//			changeContainer.add(chooseButtons[pos]);
+			changeContainer.add(chooseButtons[5]);
+			chooseButtons[5].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					chooseButtons[0].setBackground(Color.BLUE);
+					chooseButtons[1].setBackground(Color.WHITE);
+					chooseButtons[2].setBackground(Color.RED);
+				}
+			});
 		}
 		
 		changeColor.setVisible(true);
 		
-	}
+		}
 	
 }
