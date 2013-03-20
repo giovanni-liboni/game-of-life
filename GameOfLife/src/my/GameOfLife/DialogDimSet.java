@@ -17,6 +17,11 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		JButton btnCancel = new JButton("Cancella");
 		String y_="";
 		
+		/**
+		 * This method is used for creating the dimension frame. It creates a new frame and asks for square's length side.
+		 * @param messaggio
+		 * is used for setting the custom string
+		 */
 		public DialogDimSet(String messaggio){
 			
 		setTitle("Finestra JDialog personalizzata");
@@ -31,7 +36,7 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		getContentPane().add(pannelloInterno);
 		pannelloInterno.setLayout(new GridLayout(2,2));
 		
-		pannelloInterno.add(new JLabel("Insert Length's square side:"));
+		pannelloInterno.add(new JLabel("Insert square's length side:"));
 		pannelloInterno.add(tf1);
 		
 		JPanel jp = new JPanel();
@@ -71,7 +76,7 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		setVisible(true);
 		
 		}
-		
+
 		public void keyTyped(KeyEvent e) {}
 	       public void keyPressed(KeyEvent e) {}
 
@@ -83,7 +88,11 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 			}
 			dispose();
 		}
-
+		/**
+		 * This method is used for setting new grid dimension
+		 * @return output:
+		 * returns the dimension
+		 */
 		public int[] getData()
 		{
 			int [] output = new int[2];
