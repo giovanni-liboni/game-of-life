@@ -10,45 +10,59 @@ public class GameX extends JFrame {
 	private JPanel up, down;
 	private JMenuBar barraDeiMenu;
 	private JSlider slider;
-	JLabel numOfThreadLabel,contGenLabel;
-	
-	JMenu[] menu = {
+	private JLabel numOfThreadLabel,contGenLabel;
+	/*
+	 * Bisogna rendere private i menu
+	 * - Aggiungere i metodi necessari
+	 */
+	final JMenu[] menu = {
 			new JMenu("Menu"),//0
 			new JMenu("Game"),//1
 			new JMenu("Add"),//2
-			new JMenu("Still Lifes"),//3
-			new JMenu("Oscillators"),//4
-			new JMenu("Spaceships"),//5
+				new JMenu("Still Lifes"),//3
+				new JMenu("Oscillators"),//4
+				new JMenu("Spaceships"),//5
 			new JMenu("?")//6
 	};
 	
-	JMenuItem[] menuItem ={
-			new JMenuItem("Open"),//0
-			new JMenuItem("Save"),//1
-			new JMenuItem("Modifica dimensioni(solo per sviluppo)"),//2
-			new JMenuItem("Modifica numero di Threads"),//3
-			new JMenuItem("Esci"),//4
-			new JMenuItem("Change Colour"),//5
-			new JMenuItem("Campo casuale"),//6
-			new JMenuItem("Blocks"),//7
-			new JMenuItem("Beehive"),//8
-			new JMenuItem("Loaf"),//9
-			new JMenuItem("Boat"),//10
-			new JMenuItem("Blinker"),//11
-			new JMenuItem("Toad"),//12
-			new JMenuItem("Beacon"),//13
-			new JMenuItem("Pulsar"),//14
-			new JMenuItem("Glider"),//15
-			new JMenuItem("Lightweight Spaceship"),//16
-			new JMenuItem("Spaceship"), //17
-			new JMenuItem("?"),//18
+	final JMenuItem[] 
+		menuItem0 ={
+				new JMenuItem("Open..."),//0
+				new JMenuItem("Save..."),//1
+				new JMenuItem("Modifica dimensioni(solo per sviluppo)"),//2
+				new JMenuItem("Modifica numero di Threads"),//3
+				new JMenuItem("Esci")//4
+		},
+		menuItem1 ={
+				new JMenuItem("Campo casuale"),//5
+				new JMenuItem("Change Colour"),//6
+		},
+		menuItem3 = {
+				new JMenuItem("Blocks"),//7
+				new JMenuItem("Beehive"),//8
+				new JMenuItem("Loaf"),//9
+				new JMenuItem("Boat")//10
+		},
+		menuItem4 = {		
+				new JMenuItem("Blinker"),//11
+				new JMenuItem("Toad"),//12
+				new JMenuItem("Beacon"),//13
+				new JMenuItem("Pulsar")//14
+		},
+		menuItem5 = {
+				new JMenuItem("Glider"),//15
+				new JMenuItem("Lightweight Spaceship"),//16
+				new JMenuItem("Spaceship") //17
+		},
+		menuItem6 = {
+				new JMenuItem("?")//18
 		};
 	
-	JButton[] buttons = {
-			new JButton("Start"),//0
-			new JButton("Pause"),//1
-			new JButton("Reset"),//2
-			new JButton("Next")//3
+	final JButton[] buttons = {
+				new JButton("Start"),
+				new JButton("Pause"),
+				new JButton("Reset"),
+				new JButton("Next")
 	};
 	
 	
@@ -75,39 +89,34 @@ public class GameX extends JFrame {
 		
 		
 		/* Creo un array di menuItem*/
-		
-		menu[0].add(menuItem[0]);
-		menu[0].add(menuItem[1]);
-		menu[0].add(menuItem[2]);
-		menu[0].add(menuItem[3]);
-		menu[0].add(menuItem[4]);
-		menu[1].add(menuItem[5]);
-		menu[1].add(menuItem[6]);
-		menu[3].add(menuItem[7]);
-		menu[3].add(menuItem[8]);
-		menu[3].add(menuItem[9]);
-		menu[3].add(menuItem[10]);
-		menu[4].add(menuItem[11]);
-		menu[4].add(menuItem[12]);
-		menu[4].add(menuItem[13]);
-		menu[4].add(menuItem[14]);
-		menu[5].add(menuItem[15]);
-		menu[5].add(menuItem[16]);
-		menu[5].add(menuItem[17]);
-		menu[6].add(menuItem[18]);
-		
-		for(int pos=0;pos<menu.length;++pos){
-			if(pos==2||pos==3||pos==4||pos==5){
-				if(pos==5)
-					menu[2].add(menu[3]);
-					menu[2].add(menu[4]);
-					menu[2].add(menu[5]);
-					barraDeiMenu.add(menu[2]);
-			}
-			else
-				barraDeiMenu.add(menu[pos]);
+		for(int i=0; i < menuItem0.length; ++i){
+			menu[0].add(menuItem0[i]);
+		}
+		for(int i=0; i < menuItem1.length; ++i){
+			menu[1].add(menuItem1[i]);
+		}
+		for(int i=0; i < menuItem3.length; ++i){
+			menu[3].add(menuItem3[i]);
+		}
+		for(int i=0; i < menuItem4.length; ++i){
+			menu[4].add(menuItem4[i]);
+		}
+		for(int i=0; i < menuItem5.length; ++i){
+			menu[5].add(menuItem5[i]);
+		}
+		for(int i=0; i < menuItem6.length; ++i){
+			menu[6].add(menuItem6[i]);
 		}
 
+		menu[2].add(menu[3]);
+		menu[2].add(menu[4]);
+		menu[2].add(menu[5]);
+		
+		barraDeiMenu.add(menu[0]);
+		barraDeiMenu.add(menu[1]);
+		barraDeiMenu.add(menu[2]);
+		barraDeiMenu.add(menu[6]);
+		
 		setJMenuBar(barraDeiMenu);
 		
 		/*Disegno i bottoni e le varie cose sotto e sopra */

@@ -116,8 +116,10 @@ public class GenThreadsNextGeneration{
 	}
 	private int contCellule(int rows, int columns){
 		int res=0;
+		
 		int dx = (columns >= first[0].length-1) ? 0 : columns+1;
 		int sx = (columns <= 0) ? first[0].length-1 : columns-1;
+		
 		int up = (rows <= 0) ? first.length-1 : rows-1;
 		int down = (rows >= first.length-1) ? 0 : rows+1;
 		
