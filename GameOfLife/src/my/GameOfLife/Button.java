@@ -28,17 +28,29 @@ public class Button extends JButton{
 		return row;
 	}
 
-
+	/**
+	 * This method is used for setting the value of row into the current variable row
+	 * @param row
+	 * used for setting row into the current variable row
+	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
 
-
+	/**
+	 * This method is used for taking information of current column
+	 * @return
+	 * returns current column
+	 */
 	public int getColumn() {
 		return column;
 	}
 
-
+	/**
+	 * This method is used for setting the value of column into the current variable column
+	 * @param column
+	 * used for setting column into the current variable column
+	 */
 	public void setColumn(int column) {
 		this.column = column;
 	}
