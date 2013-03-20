@@ -33,6 +33,9 @@ public class ColorChanger extends JFrame{
 					if (selectedColor != null)
 	                {
 						chooseButtons[pos3].setBackground(selectedColor);
+						panel.setGridColor(pos3, selectedColor);
+						panel.setColor();
+						panel.repaint();
 	                }
 				}
 			});
@@ -43,6 +46,9 @@ public class ColorChanger extends JFrame{
 					for(int pos=0; pos<3;pos++){
 						int r=random.nextInt(256), g=random.nextInt(256), b=random.nextInt(256);
 						chooseButtons[pos].setBackground(new Color(r,g,b));
+						panel.setGridColor(pos, chooseButtons[pos].getBackground());
+						panel.setColor();
+						panel.repaint();
 					}
 				}
 			});
@@ -51,8 +57,6 @@ public class ColorChanger extends JFrame{
 				public void actionPerformed(ActionEvent arg0) {
 					for(int pos = 0; pos<3; pos++){
 						panel.setGridColor(pos, chooseButtons[pos].getBackground());
-						panel.setVisible(false);
-						panel.setVisible(true);
 						panel.setColor();
 						panel.repaint();
 						changeColor.dispose();
@@ -65,6 +69,11 @@ public class ColorChanger extends JFrame{
 					chooseButtons[0].setBackground(Color.BLUE);
 					chooseButtons[1].setBackground(Color.WHITE);
 					chooseButtons[2].setBackground(Color.RED);
+					for(int pos = 0; pos<3; pos++){
+						panel.setGridColor(pos, chooseButtons[pos].getBackground());
+						panel.setColor();
+						panel.repaint();
+					}
 				}
 			});
 		}
