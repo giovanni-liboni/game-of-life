@@ -29,13 +29,14 @@ public class ColorChanger extends JFrame{
 			chooseButtons[pos].setBackground(panel.getColor(pos));
 			chooseButtons[pos].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Color selectedColor = JColorChooser.showDialog(changeColor, "Pick your favorite color", panel.getColor(0));
+					Color selectedColor = JColorChooser.showDialog(changeColor, "Pick your favorite color", panel.getColor(pos3));
 					if (selectedColor != null)
 	                {
 						chooseButtons[pos3].setBackground(selectedColor);
-						panel.setGridColor(pos3, selectedColor);
+						for(int pos4=0;pos4<3;pos4++){
+						panel.setGridColor(pos4, chooseButtons[pos4].getBackground());
 						panel.setColor();
-						panel.repaint();
+						panel.repaint();}
 	                }
 				}
 			});
