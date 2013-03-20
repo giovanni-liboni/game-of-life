@@ -482,7 +482,7 @@ public class Finestra extends JFrame{
 		         try {
 		        	 ++contGen;
 		        	 frame.setContGenLabel(String.valueOf(contGen));
-		        	 sleepFor(frame.getSlider().getValue());
+		        	 sleepFor((500 - frame.getSlider().getValue()));
 		             SwingUtilities.invokeAndWait(doNextGen);
 		         }
 		         catch (Exception e) {}

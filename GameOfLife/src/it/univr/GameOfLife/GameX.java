@@ -27,8 +27,8 @@ public class GameX extends JFrame {
 	
 	final JMenuItem[] 
 		menuItem0 ={
-				new JMenuItem("Open"),//0
-				new JMenuItem("Save"),//1
+				new JMenuItem("Open..."),//0
+				new JMenuItem("Save..."),//1
 				new JMenuItem("Modifica dimensioni(solo per sviluppo)"),//2
 				new JMenuItem("Modifica numero di Threads"),//3
 				new JMenuItem("Esci")//4
