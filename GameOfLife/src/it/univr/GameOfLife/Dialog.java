@@ -55,10 +55,10 @@ public class Dialog{
 			fileName = c.getSelectedFile().getName();
 		}
 		if(rVal == JFileChooser.CANCEL_OPTION) {
-			fileName = "";
+			return;
 		}
 		if(fileName == null){
-//			dispose();
+			return;
 		}
 		File f = c.getSelectedFile();
 		
@@ -107,12 +107,10 @@ public class Dialog{
 		
 		}
 		if(rVal == JFileChooser.CANCEL_OPTION) {
-			fileName = "";
-			
+			return;
 		}
 		if(fileName == null){
-			JOptionPane.showConfirmDialog(null, "File non trovato", "Attenzione!", JOptionPane.ERROR_MESSAGE);
-			
+			return;
 		}
 		File f = c.getSelectedFile();
 		DataInputStream inStream;
@@ -159,8 +157,7 @@ public class Dialog{
 				
 			}
 			catch(EOFException e){
-				JOptionPane.showConfirmDialog(null, "Caricamento completato");
-				
+				JOptionPane.showConfirmDialog(null, "Caricamento completato");		
 			}
 			inStream.close();
 			
