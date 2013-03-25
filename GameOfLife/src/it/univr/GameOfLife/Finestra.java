@@ -9,14 +9,11 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class Finestra extends JFrame{
 	
-	protected String
-		fileName = "",
-		str;
 	private Dialog dialog;
 	protected static boolean gameStatus; // if true -> start else pause
-	protected GameX frame;
+	protected static GameX frame;
 	protected static Griglia panel;
-	protected int 
+	protected static int 
 		numOfThreads=1,
 		X=80, 
 		Y=80,
@@ -38,7 +35,7 @@ public class Finestra extends JFrame{
 		/* Creo la finestra iniziale e aggiorno il numero di threads
 		 * da usare
 		 */
-		numOfThreads = dialog.numOfThreads();
+		dialog.numOfThreads();
 		
 		/* Creo il frame*/
 		
@@ -76,14 +73,7 @@ public class Finestra extends JFrame{
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							
-						Vector<Object> res = dialog.fileOpen();
-						
-						contGen = (int) res.elementAt(0);
-						numOfThreads = (int) res.elementAt(1);
-						
-					    frame.setContGenLabel(String.valueOf(contGen));
-						frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
-						
+						dialog.fileOpen();		
 						disegna();
 					}
 				},
@@ -126,12 +116,7 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-					
-						numOfThreads = dialog.numOfThreads();
-						
-						// aggiornamento numero di threads usate stampate
-						
-						frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
+							dialog.numOfThreads();
 					}
 				},
 				

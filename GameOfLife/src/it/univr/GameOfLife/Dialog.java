@@ -18,7 +18,7 @@ public class Dialog{
 	/*
 	 * Finestra che ritorna il numero di threads inserito
 	 */
-	public int numOfThreads(){
+	public void numOfThreads(){
 		String str;
 		int numOfThreads=2;
 		
@@ -39,8 +39,10 @@ public class Dialog{
 			}
 			}
 			while(numOfThreads < 0);
-		
-		return numOfThreads;
+		// modifico il numero di threads
+		Finestra.numOfThreads = numOfThreads;
+		Finestra.frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
+
 	}
 	public void fileSave(Core campo,int contGen, int numOfThreads ){
 		
@@ -93,11 +95,8 @@ public class Dialog{
 			
 		}
 	}
-	
-	public Vector<Object> fileOpen(){
-		
-		Vector<Object> res = new Vector<Object>();
-		int contGen, numOfThreads;
+	public void fileOpen(){
+
 		String
 			fileName = "";
 		
@@ -113,7 +112,6 @@ public class Dialog{
 			
 		}
 		if(fileName == null){
-//			dispose();
 			JOptionPane.showConfirmDialog(null, "File non trovato", "Attenzione!", JOptionPane.ERROR_MESSAGE);
 			
 		}
@@ -132,14 +130,12 @@ public class Dialog{
 				inStream.readChar();
 				
 				// contGen
-				contGen = inStream.readInt();
+				Finestra.contGen = inStream.readInt();
 				inStream.readChar();
-				res.add(contGen);
 				
 				//numOfThreads
-				numOfThreads = inStream.readInt();
+				Finestra.numOfThreads = inStream.readInt();
 				inStream.readChar();
-				res.add(numOfThreads);
 				
 				array = new boolean[max][max];
 				
@@ -150,13 +146,18 @@ public class Dialog{
 					}
 				}
 				
-				campo = new Core(numOfThreads, array);
+				campo = new Core(Finestra.numOfThreads, array);
 				Finestra.cont.remove(Finestra.panel);
 				Finestra.panel = new Griglia(campo);
 				Finestra.cont.add(Finestra.panel);
 				Finestra.panel.setVisible(false);
 				Finestra.panel.setVisible(true);          
 				Finestra.gameStatus = false;
+				
+			    Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
+				Finestra.frame.setNumOfThreadLabel(String.valueOf(Finestra.numOfThreads));
+				
+				
 			}
 			catch(EOFException e){
 				JOptionPane.showConfirmDialog(null, "Caricamento completato");
@@ -175,7 +176,6 @@ public class Dialog{
 		catch (Exception e) {
 		JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 		}
-		
-	return res;
 	}
+
 }
