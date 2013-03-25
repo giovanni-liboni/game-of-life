@@ -36,12 +36,12 @@ public class Dialog{
 					
 				}
 				catch(NumberFormatException e){
-			}
+				}
 			}
 			while(numOfThreads < 0);
 		// modifico il numero di threads
 		Finestra.numOfThreads = numOfThreads;
-		Finestra.frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
+
 
 	}
 	public void fileSave(Core campo,int contGen, int numOfThreads ){

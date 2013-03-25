@@ -42,9 +42,7 @@ public class Finestra extends JFrame{
 		// aggiorno il numero di threads per l'interfaccia
 		
 		frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
-				
-
-		
+			
 		/*Creo il JPanel per il campo delle cellule	 */
 		
 		cont = frame.getContentPane();
@@ -91,22 +89,8 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						int[] dati = new DialogDimSet("Immettere le dimensioni").getData();
-						
-						if(dati[0]>0 && dati[1]>0){
-							Y = dati[1];
-							X = dati[0];
-							cont.remove(panel);
-							panel = new Griglia(new Core(numOfThreads,Y,X));
-							cont.add(panel);
-							panel.setVisible(false);
-							panel.setVisible(true);
-							frame.repaint();
-							disegna();
-						    contGen = 0;
-	                        frame.setContGenLabel(String.valueOf(contGen));
-	                        gameStatus = false;
-						}
+						dialog.dimSet();
+						disegna();
 					}
 				},
 			
@@ -116,6 +100,8 @@ public class Finestra extends JFrame{
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						dialog.numOfThreads();
+						// aggiorno il numero di threads per l'interfaccia
+						frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
 					}
 				},
 					// chiude il programma	- 4

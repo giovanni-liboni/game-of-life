@@ -39,10 +39,9 @@ public class Dialog{
 			}
 			}
 			while(numOfThreads < 0);
+		
 		// modifico il numero di threads
 		Finestra.numOfThreads = numOfThreads;
-		Finestra.frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
-
 	}
 	public void fileSave(Core campo,int contGen, int numOfThreads ){
 		
@@ -177,5 +176,22 @@ public class Dialog{
 		JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 		}
 	}
+	public void dimSet(){
+		int[] dati = new DialogDimSet("Immettere le dimensioni").getData();
+		
+		if(dati[0]>0 && dati[1]>0){
+			Finestra.Y = dati[1];
+			Finestra.X = dati[0];
+			Finestra.cont.remove(Finestra.panel);
+			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dati[1],dati[0]));
+			Finestra.cont.add(Finestra.panel);
+			Finestra.panel.setVisible(false);
+			Finestra.panel.setVisible(true);
+			Finestra.frame.repaint();
 
+			Finestra. contGen = 0;
+			Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
+			Finestra. gameStatus = false;
+		}
+	}
 }
