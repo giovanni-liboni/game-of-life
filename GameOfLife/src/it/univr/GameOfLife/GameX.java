@@ -1,7 +1,6 @@
 package it.univr.GameOfLife;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -34,7 +33,8 @@ public class GameX extends JFrame {
 				new JMenuItem("Esci")//4
 		},
 		menuItem1 ={
-				new JMenuItem("Campo casuale")//6
+				new JMenuItem("Campo casuale"),//5
+				new JMenuItem("Change Colour"),//6
 		},
 		menuItem3 = {
 				new JMenuItem("Blocks"),//7
@@ -176,5 +176,4 @@ public class GameX extends JFrame {
 	public void setContGenLabel(String str) {
 		this.contGenLabel.setText(str);
 	}
-
 }

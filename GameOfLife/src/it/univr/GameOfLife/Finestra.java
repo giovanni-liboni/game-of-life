@@ -2,8 +2,6 @@ package it.univr.GameOfLife;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Vector;
-
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -45,16 +43,18 @@ public class Finestra extends JFrame{
 		
 		frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
 				
-		/*Creo il JPanel per il campo delle cellule	 */
 
+		
+		/*Creo il JPanel per il campo delle cellule	 */
+		
 		cont = frame.getContentPane();
 		panel = new Griglia(new Core(numOfThreads,Y,X));
 		cont.add(panel);
-			
-	// Assegno i menù
-		assegnaMenu();
-			
+		
 		frame.setVisible(true);
+		
+		// Assegno i menù
+		assegnaMenu();
 		
 	} // fine costruttore Finestra
 	/**
@@ -72,9 +72,8 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							
-						dialog.fileOpen();		
-						disegna();
+							dialog.fileOpen();		
+							disegna();
 					}
 				},
 			
@@ -116,11 +115,10 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-							dialog.numOfThreads();
+						dialog.numOfThreads();
 					}
 				},
-				
-				// chiude il programma	- 4
+					// chiude il programma	- 4
 						
 				new ActionListener(){
 							@Override
@@ -141,7 +139,13 @@ public class Finestra extends JFrame{
 					panel.setCampo((new Core(numOfThreads,Y,X)));
 					disegna();
 					}
+			},
+			new ActionListener(){
+				public void actionPerformed(ActionEvent arg0) {
+					new ColorChanger(panel);
+					}
 			}
+			
 		},
 		
 		ActionListenerMenuItem3 = {
@@ -352,7 +356,7 @@ public class Finestra extends JFrame{
 	 * This method is used for drawing the current panel, using setColor() and repaint()
 	 * methods on current panel
 	 */
-	protected void disegna(){
+	private void disegna(){
 		panel.setColor();
 		panel.repaint();
 	}

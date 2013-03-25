@@ -14,7 +14,25 @@ public class Griglia extends JPanel {
 	private int max;
 	private Button[][] buttons;
 	private int actionListenerMode = -1;
+	private Color lifeColor = Color.BLUE;//case 1
+	private Color noLifeColor = Color.WHITE;//case 2
+	private Color deathColor = Color.RED;//case other
 	
+	public Color getColor(int whatColor){
+		switch(whatColor){
+			case 0: return this.lifeColor;
+			case 1: return this.noLifeColor;
+			case 2: return this.deathColor;
+			default: return null;
+		}
+	}
+	public void setGridColor(int whatColor, Color setSelectedColor){
+		switch(whatColor){
+			case 0: this.lifeColor = setSelectedColor;
+			case 1: this.noLifeColor = setSelectedColor;
+			case 2: this.deathColor = setSelectedColor;
+		}
+	}
 	// implemento l'action listener per i pulsanti
 	/**
 	 * This method sets the value into ActionListenerMode, used for adding or killing cells.
@@ -125,7 +143,7 @@ public class Griglia extends JPanel {
 					}
 					default:
 						if( e.getSource() instanceof Button) {   
-							((Button)e.getSource()).setBackground(Color.red);
+							((Button)e.getSource()).setBackground(deathColor);
 							campo.uccidoCell(y,x);
 						break;
 						}
@@ -155,10 +173,10 @@ public class Griglia extends JPanel {
 				buttons[y][x].addActionListener(kill);
 				
 				if(campo.isDeath(y, x)){
-					buttons[y][x].setBackground(Color.RED);
+					buttons[y][x].setBackground(deathColor);
 				}
 				else
-					buttons[y][x].setBackground((array[y][x])? Color.BLUE : Color.WHITE);
+					buttons[y][x].setBackground((array[y][x])? lifeColor : noLifeColor);
 				
 				this.add(buttons[y][x]);
 			}
@@ -183,10 +201,10 @@ public class Griglia extends JPanel {
 		for(int y=0; y< max;y++){
 			for(int x=0; x < max;x++){
 				if(campo.isDeath(y, x)){
-					buttons[y][x].setBackground(Color.RED);
+					buttons[y][x].setBackground(deathColor);
 				}
 				else
-					buttons[y][x].setBackground((array[y][x])? Color.BLUE : Color.WHITE);
+					buttons[y][x].setBackground((array[y][x])? lifeColor : noLifeColor);
 				}
 		}
 	}
@@ -198,7 +216,7 @@ public class Griglia extends JPanel {
 		this.array = campo.getArray();
 			for(Button[] button: buttons){
 				for(Button button_: button){
-					button_.setBackground(Color.WHITE);
+					button_.setBackground(noLifeColor);
 				}
 			}
 	}
@@ -219,4 +237,5 @@ public class Griglia extends JPanel {
 	public Core getCampo(){
 		return campo;
 	}
+
 }
