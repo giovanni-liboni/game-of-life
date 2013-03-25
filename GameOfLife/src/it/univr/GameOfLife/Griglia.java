@@ -119,7 +119,7 @@ public class Griglia extends JPanel {
 					}
 					case 9:{
 						if( e.getSource() instanceof Button) {   
-							//add glider
+							campo.addGlider(y, x);
 							array = campo.getArray();
 							setColor();
 						}
