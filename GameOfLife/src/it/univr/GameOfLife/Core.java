@@ -336,7 +336,30 @@ public class Core {
 			this.addBlinkerVertical(y_+3, x_-1);
 			this.addBlinkerVertical(y_+3, x_-6);
 	}
-	// columns
+	public void addGlider(int y, int x){
+		setLifeFirstTrue(y, x);
+		this.addBlinkerVertical(y, x-1);
+		this.addBlinkerVertical(y, x-7);
+		setLifeFirstTrue(y, x-3);
+		setLifeFirstTrue(y+2, x-2);
+		setLifeFirstTrue(y-2, x-2);
+		setLifeFirstTrue(y-3, x-4);
+		setLifeFirstTrue(y-3, x-5);
+		setLifeFirstTrue(y+3, x-4);
+		setLifeFirstTrue(y+3, x-5);
+		setLifeFirstTrue(y+2, x-6);
+		setLifeFirstTrue(y-2, x-6);
+		addBlock(y+1, x-17);
+		addBlinkerVertical(y+2, x+3);
+		addBlinkerVertical(y+2, x+4);
+		setLifeFirstTrue(y, x+5);
+		setLifeFirstTrue(y+4, x+5);
+		setLifeFirstTrue(y+5, x+7);
+		setLifeFirstTrue(y+4, x+7);
+		setLifeFirstTrue(y, x+7);
+		setLifeFirstTrue(y-1, x+7);
+		addBlock(y+3, x+17);
+	}
 	/**
 	 * This method is used for taking informations about the real X (column) cell's coordinates
 	 * @param column
