@@ -92,11 +92,10 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						int[] dati = new DialogDimSet("Immettere le dimensioni").getData();
+						int dato = new DialogDimSet("Immettere le dimensioni").getData();
 						
-						if(dati[0]>0 && dati[1]>0){
-							Y = dati[1];
-							X = dati[0];
+						if(dato>0){
+							X = dato;
 							cont.remove(panel);
 							panel = new Griglia(new Core(numOfThreads,Y,X));
 							cont.add(panel);

@@ -7,8 +7,8 @@ public class GenThreadsCasualArray{
 	public boolean array[][];
 	private int y=0;
 		
-	public GenThreadsCasualArray(int numOfThreads, int y, int x){
-			array = new boolean[y][x];
+	public GenThreadsCasualArray(int numOfThreads, int size){
+			array = new boolean[size][size];
 			SingleThread[] slaves = createThreads(numOfThreads);
 			waitForThreadsToFinish(slaves);
 		}

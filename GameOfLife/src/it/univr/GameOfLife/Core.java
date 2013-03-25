@@ -7,13 +7,11 @@ public class Core {
 	 * This method creates a new field using:
 	 * @param numOfThreads
 	 * is used for calculating a new casual array
-	 * @param rows
-	 * is used for setting the row's number of the array
-	 * @param columns
-	 * is used for setting the column's number of the array
+	 * @param dim
+	 * is used for setting the size of the array
 	 */
-	public Core(int numOfThreads, int rows, int columns){
-		GenThreadsCasualArray gen = new GenThreadsCasualArray(numOfThreads, rows, columns);
+	public Core(int numOfThreads, int size){
+		GenThreadsCasualArray gen = new GenThreadsCasualArray(numOfThreads, size);
 		first = new Cell[gen.getArray().length][gen.getArray()[0].length];
 		arrayToCell(gen.getArray());		
 	}

@@ -13,8 +13,7 @@ public class Finestra extends JFrame{
 	protected static Griglia panel;
 	protected static int 
 		numOfThreads=1,
-		X=80, 
-		Y=80,
+		X=80,
 		contGen=0;
 	protected static Container cont;
 	final Runnable doNextGen = new Runnable() {
@@ -46,7 +45,7 @@ public class Finestra extends JFrame{
 		/*Creo il JPanel per il campo delle cellule	 */
 		
 		cont = frame.getContentPane();
-		panel = new Griglia(new Core(numOfThreads,Y,X));
+		panel = new Griglia(new Core(numOfThreads,X));
 		cont.add(panel);
 		
 		frame.setVisible(true);
@@ -122,7 +121,7 @@ public class Finestra extends JFrame{
 				public void actionPerformed(ActionEvent arg0) {
 					contGen = 0;
 					frame.setContGenLabel(String.valueOf(contGen));
-					panel.setCampo((new Core(numOfThreads,Y,X)));
+					panel.setCampo((new Core(numOfThreads,X)));
 					disegna();
 					}
 			},

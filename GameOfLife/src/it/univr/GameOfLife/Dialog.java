@@ -68,20 +68,19 @@ public class Dialog{
 			
 			int max = campo.getArray().length;
 			
+			outStream.writeInt(-1);
+			
 			outStream.writeInt(max);
-			outStream.writeChar(':');
 			
 			outStream.writeInt(contGen);
-			outStream.writeChar(':');
 			
 			outStream.writeInt(numOfThreads);
-			outStream.writeChar(':');
 			
 			for(int y=0; y< max;y++){
 				for(int x=0; x < max;x++){
 					
 					outStream.writeBoolean(campo.getArray()[y][x]);
-					outStream.writeChar(';');
+					outStream.writeBoolean(campo.isDeath(y, x));
 				}
 			}
 			
@@ -95,7 +94,8 @@ public class Dialog{
 		}
 	}
 	public void fileOpen(){
-
+		boolean statusFile = false;
+		int temp;
 		String
 			fileName = "";
 		
@@ -120,30 +120,55 @@ public class Dialog{
 	
 			Core campo;
 			boolean [][] array = null;
+			boolean [][] death = null;
 			int max;
 			try{
 				
-				max = inStream.readInt();
-				inStream.readChar();
+				temp = inStream.readInt();
 				
+				if(temp<0){
+					max = inStream.readInt();
+					statusFile = true;
+				}
+				else
+					max = temp;
+				if(!statusFile)
+					inStream.readChar();
 				// contGen
 				Finestra.contGen = inStream.readInt();
-				inStream.readChar();
+				if(!statusFile)
+					inStream.readChar();
 				
 				//numOfThreads
 				Finestra.numOfThreads = inStream.readInt();
-				inStream.readChar();
+				if(!statusFile)
+					inStream.readChar();
 				
 				array = new boolean[max][max];
+				death = new boolean[max][max];
 				
 				for(int y=0; y< max;y++){
 					for(int x=0; x < max;x++){
 						array[y][x] = inStream.readBoolean();
-						inStream.readChar();
+						if(statusFile)
+							death[y][x] = inStream.readBoolean();
+						
+						if(!statusFile)
+							inStream.readChar();
 					}
 				}
 				
 				campo = new Core(Finestra.numOfThreads, array);
+				
+				// uccido le cellule
+				if(statusFile){
+				for(int y=0; y< max;y++){
+					for(int x=0; x < max;x++){
+						if(death[y][x])
+							campo.uccidoCell(y, x);
+					}
+				}
+				}
 				Finestra.cont.remove(Finestra.panel);
 				Finestra.panel = new Griglia(campo);
 				Finestra.cont.add(Finestra.panel);
@@ -174,13 +199,12 @@ public class Dialog{
 		}
 	}
 	public void dimSet(){
-		int[] dati = new DialogDimSet("Immettere le dimensioni").getData();
+		int dato = new DialogDimSet("Immettere le dimensioni").getData();
 		
-		if(dati[0]>0 && dati[1]>0){
-			Finestra.Y = dati[1];
-			Finestra.X = dati[0];
+		if(dato>0){
+			Finestra.X = dato;
 			Finestra.cont.remove(Finestra.panel);
-			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dati[1],dati[0]));
+			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dato));
 			Finestra.cont.add(Finestra.panel);
 			Finestra.panel.setVisible(false);
 			Finestra.panel.setVisible(true);

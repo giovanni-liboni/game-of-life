@@ -51,7 +51,6 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 			public void keyTyped(KeyEvent e){
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
 						y_ = tf1.getText();
-//						x_ = tf2.getText();
 						dispose();
 				 }
 			}
@@ -93,18 +92,8 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		 * @return output:
 		 * returns the dimension
 		 */
-		public int[] getData()
+		public int getData()
 		{
-			int [] output = new int[2];
-			
-			try{
-				output[0] = Integer.parseInt(y_);
-				output[1] = Integer.parseInt(y_);
-			}
-			catch(Exception e){
-				output[0]=-1;
-				return output;
-			}
-			return output;
+			return Integer.parseInt(y_);
 		}
 	}
