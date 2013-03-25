@@ -18,7 +18,7 @@ public class DialogDimSet extends javax.swing.JDialog implements ActionListener 
 		
 		public DialogDimSet(String messaggio){
 			
-		setTitle("Finestra JDialog personalizzata");
+		setTitle("Cambio dimensioni");
 		setModal(true);
 		
 		getContentPane().setLayout(new BorderLayout());

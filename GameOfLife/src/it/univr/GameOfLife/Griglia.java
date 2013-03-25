@@ -219,5 +219,4 @@ public class Griglia extends JPanel {
 	public Core getCampo(){
 		return campo;
 	}
-
 }

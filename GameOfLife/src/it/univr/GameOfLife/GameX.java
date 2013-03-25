@@ -176,4 +176,5 @@ public class GameX extends JFrame {
 	public void setContGenLabel(String str) {
 		this.contGenLabel.setText(str);
 	}
+
 }
