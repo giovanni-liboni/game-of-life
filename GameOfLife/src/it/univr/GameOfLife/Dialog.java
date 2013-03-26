@@ -8,8 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Vector;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -199,20 +197,37 @@ public class Dialog{
 		}
 	}
 	public void dimSet(){
-		int dato = new DialogDimSet("Immettere le dimensioni").getData();
+		String str;
+		int dim = 50;
 		
-		if(dato>0){
-			Finestra.X = dato;
+		do{
+			str = JOptionPane.showInputDialog (
+					   "Insert square's length side:", 50);
+				try{
+					int temp = Integer.parseInt(str);
+					if(temp > 0){
+						dim = temp;
+					}
+					else if(temp < 0)
+						JOptionPane.showMessageDialog(null, "Attenzione valore inserito non valido!\n"+
+								"Inserire numero maggiore di 0.", "Attenzione!", JOptionPane.WARNING_MESSAGE);
+					
+				}
+				catch(NumberFormatException e){
+			}
+			}
+			while(dim < 0);
+		
+			Finestra.X = dim;
 			Finestra.cont.remove(Finestra.panel);
-			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dato));
+			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));
 			Finestra.cont.add(Finestra.panel);
 			Finestra.panel.setVisible(false);
-			Finestra.panel.setVisible(true);
+		 	Finestra.panel.setVisible(true);
 			Finestra.frame.repaint();
 
 			Finestra. contGen = 0;
 			Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
 			Finestra. gameStatus = false;
-		}
 	}
 }

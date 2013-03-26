@@ -49,106 +49,95 @@ public class Griglia extends JPanel {
 	private ActionListener kill = new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
-					int y = ((Button)e.getSource()).getRow();
-					int x = ((Button)e.getSource()).getColumn();
-					switch(actionListenerMode){
-					case 1:{
-						if( e.getSource() instanceof Button) {   
-							campo.addBlock(y, x);
-							array = campo.getArray();
-							setColor();
+					if(e.getSource() instanceof Button){
+						
+						int y = ((Button)e.getSource()).getRow();
+						int x = ((Button)e.getSource()).getColumn();
+						
+						switch(actionListenerMode){
+						case 1:{
+								campo.addBlock(y, x);
+								array = campo.getArray();
+								setColor();
+							
+							break;	
 						}
-						break;	
-					}
-					case 2:{
-						if( e.getSource() instanceof Button) {   
-							campo.addBeehive(y, x);
-							array = campo.getArray();
-							setColor();
+						case 2:{ 
+								campo.addBeehive(y, x);
+								array = campo.getArray();
+								setColor();
+							break;	
 						}
-						break;	
-					}
-					case 3:{
-						if( e.getSource() instanceof Button) {   
-							campo.addLoaf(y, x);
-							array = campo.getArray();
-							setColor();
+						case 3:{
+								campo.addLoaf(y, x);
+								array = campo.getArray();
+								setColor();
+							
+							break;	
 						}
-						break;	
-					}
-					case 4:{
-						if( e.getSource() instanceof Button) {   
-							//add boat
-							array = campo.getArray();
-							setColor();
+						case 4:{ 
+								//add boat
+								array = campo.getArray();
+								setColor();
+							
+							break;	
 						}
-						break;	
-					}
-					case 5:{
-						if( e.getSource() instanceof Button) {   
-							campo.addBlinkerHorizontal(y, x);
-							array = campo.getArray();
-							setColor();
+						case 5:{
+								campo.addBlinkerHorizontal(y, x);
+								array = campo.getArray();
+								setColor();
+							break;	
 						}
-						break;	
-					}
-					case 6:{
-						if( e.getSource() instanceof Button) {   
-							campo.addToad(y, x);
-							array = campo.getArray();
-							setColor();
+						case 6:{  
+								campo.addToad(y, x);
+								array = campo.getArray();
+								setColor();
+							break;	
 						}
-						break;	
-					}
-					case 7:{
-						if( e.getSource() instanceof Button) {   
-							campo.addBeacon(y, x);
-							array = campo.getArray();
-							setColor();
+						case 7:{
+								campo.addBeacon(y, x);
+								array = campo.getArray();
+								setColor();
+							break;	
 						}
-						break;	
-					}
-					case 8:{
-						if( e.getSource() instanceof Button) {   
-							campo.addPulsar(y, x);
-							array = campo.getArray();
-							setColor();
+						case 8:{
+								campo.addPulsar(y, x);
+								array = campo.getArray();
+								setColor();
+							break;	
 						}
-						break;	
-					}
-					case 9:{
-						if( e.getSource() instanceof Button) {   
-							campo.addGlider(y, x);
-							array = campo.getArray();
-							setColor();
+						case 9:{
+							  
+								campo.addGlider(y, x);
+								array = campo.getArray();
+								setColor();
+							
+							break;	
 						}
-						break;	
-					}
-					case 10:{
-						if( e.getSource() instanceof Button) {   
-							campo.addLightweight(x, y);
-							array = campo.getArray();
-							setColor();
+						case 10:{
+							
+								campo.addLightweight(x, y);
+								array = campo.getArray();
+								setColor();
+							
+							break;	
 						}
-						break;	
-					}
-					case 11:{
-						if( e.getSource() instanceof Button) {   
-							campo.addShip(x, y);
-							array = campo.getArray();
-							setColor();
+						case 11:{
+							  
+								campo.addShip(x, y);
+								array = campo.getArray();
+								setColor();
+							
+							break;	
 						}
-						break;	
-					}
-					default:
-						if( e.getSource() instanceof Button) {   
-							((Button)e.getSource()).setBackground(deathColor);
-							campo.uccidoCell(y,x);
-						break;
+						default:
+							  
+								((Button)e.getSource()).setBackground(deathColor);
+								campo.uccidoCell(y,x);
+							break;
+							
 						}
 					}
-					
 				}
 	};
 	/**

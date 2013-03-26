@@ -30,6 +30,7 @@ public class GenThreadsArrayToCell{
 				catch (InterruptedException e) {
 					// qualcuno ci ha interrotti mentre aspettavamo
 				}
+				finally{;}
 		}
 	private class SingleThread extends Thread{
 			private int yThread;

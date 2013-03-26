@@ -317,7 +317,8 @@ public class Finestra extends JFrame{
 		             SwingUtilities.invokeAndWait(doNextGen);
 		         }
 		         catch (Exception e) {}
-		    	 }
+		         finally{;}
+		        }
 		     }
 		 }; appThread.start();
 	}

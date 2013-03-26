@@ -73,6 +73,7 @@ public class GenThreadsNextGeneration{
 				slave.join();
 			}
 			catch (InterruptedException e) {}
+			finally{;}
 	}
 	private class SingleThread extends Thread{
 		int yThread;

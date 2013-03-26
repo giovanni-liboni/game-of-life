@@ -12,7 +12,6 @@ import javax.swing.*;
 public class DialogDimSet extends javax.swing.JDialog implements ActionListener {
 
 		JTextField tf1 = new JTextField(5);
-//		JTextField tf2 = new JTextField(5);
 		JButton btnOK = new JButton(" OK ");
 		JButton btnCancel = new JButton("Cancella");
 		String y_="";
