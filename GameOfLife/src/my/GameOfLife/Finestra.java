@@ -3,7 +3,6 @@ package my.GameOfLife;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.io.*;
 
 @SuppressWarnings("serial")
 public class Finestra extends JFrame{
