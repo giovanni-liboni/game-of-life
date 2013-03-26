@@ -55,87 +55,87 @@ public class Griglia extends JPanel {
 						int x = ((Button)e.getSource()).getColumn();
 						
 						switch(actionListenerMode){
-						case 1:{
-								campo.addBlock(y, x);
-								array = campo.getArray();
-								setColor();
-							
-							break;	
-						}
-						case 2:{ 
-								campo.addBeehive(y, x);
-								array = campo.getArray();
-								setColor();
-							break;	
-						}
-						case 3:{
-								campo.addLoaf(y, x);
-								array = campo.getArray();
-								setColor();
-							
-							break;	
-						}
-						case 4:{ 
-								//add boat
-								array = campo.getArray();
-								setColor();
-							
-							break;	
-						}
-						case 5:{
-								campo.addBlinkerHorizontal(y, x);
-								array = campo.getArray();
-								setColor();
-							break;	
-						}
-						case 6:{  
-								campo.addToad(y, x);
-								array = campo.getArray();
-								setColor();
-							break;	
-						}
-						case 7:{
-								campo.addBeacon(y, x);
-								array = campo.getArray();
-								setColor();
-							break;	
-						}
-						case 8:{
-								campo.addPulsar(y, x);
-								array = campo.getArray();
-								setColor();
-							break;	
-						}
-						case 9:{
-							  
-								campo.addGlider(y, x);
-								array = campo.getArray();
-								setColor();
-							
-							break;	
-						}
-						case 10:{
-							
-								campo.addLightweight(x, y);
-								array = campo.getArray();
-								setColor();
-							
-							break;	
-						}
-						case 11:{
-							  
-								campo.addShip(x, y);
-								array = campo.getArray();
-								setColor();
-							
-							break;	
-						}
-						default:
-							  
-								((Button)e.getSource()).setBackground(deathColor);
-								campo.uccidoCell(y,x);
-							break;
-							
+							case 1:{
+									campo.addBlock(y, x);
+									array = campo.getArray();
+									setColor();
+								
+								break;	
+							}
+							case 2:{ 
+									campo.addBeehive(y, x);
+									array = campo.getArray();
+									setColor();
+								break;	
+							}
+							case 3:{
+									campo.addLoaf(y, x);
+									array = campo.getArray();
+									setColor();
+								
+								break;	
+							}
+							case 4:{ 
+									//add boat
+									array = campo.getArray();
+									setColor();
+								
+								break;	
+							}
+							case 5:{
+									campo.addBlinkerHorizontal(y, x);
+									array = campo.getArray();
+									setColor();
+								break;	
+							}
+							case 6:{  
+									campo.addToad(y, x);
+									array = campo.getArray();
+									setColor();
+								break;	
+							}
+							case 7:{
+									campo.addBeacon(y, x);
+									array = campo.getArray();
+									setColor();
+								break;	
+							}
+							case 8:{
+									campo.addPulsar(y, x);
+									array = campo.getArray();
+									setColor();
+								break;	
+							}
+							case 9:{
+								  
+									campo.addGlider(y, x);
+									array = campo.getArray();
+									setColor();
+								
+								break;	
+							}
+							case 10:{
+								
+									campo.addLightweight(x, y);
+									array = campo.getArray();
+									setColor();
+								
+								break;	
+							}
+							case 11:{
+								  
+									campo.addShip(x, y);
+									array = campo.getArray();
+									setColor();
+								
+								break;	
+							}
+							default:
+								  
+									((Button)e.getSource()).setBackground(deathColor);
+									campo.uccidoCell(y,x);
+								break;
+								
 						}
 					}
 				}
