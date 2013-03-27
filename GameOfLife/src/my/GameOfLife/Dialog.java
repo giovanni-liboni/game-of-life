@@ -42,8 +42,9 @@ public class Dialog{
 		Finestra.numOfThreads = numOfThreads;
 	}
 	/**
-	 * This method is used for creating the frame which will asks for file name for saving the current game grid ;)
+	 * This method is used for creating the frame which will asks for file name for saving the current game grid.
 	 * @param campo
+	 * Used for obtaining the 
 	 * @param contGen
 	 * @param numOfThreads
 	 */
