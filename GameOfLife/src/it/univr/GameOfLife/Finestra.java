@@ -2,6 +2,7 @@ package it.univr.GameOfLife;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 @SuppressWarnings("serial")
@@ -13,7 +14,7 @@ public class Finestra extends JFrame{
 	protected static Griglia panel;
 	protected static int 
 		numOfThreads=1,
-		dim=70,
+		dim=60,
 		contGen=0;
 	protected static Container cont;
 	final Runnable doNextGen = new Runnable() {
@@ -125,11 +126,19 @@ public class Finestra extends JFrame{
 					disegna();
 					}
 			},
+			// change color
 			new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
 					new ColorChanger(panel);
 					}
-			}
+			},
+			new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					panel.setActionListenerMode(-1);			
+				}
+			},
 			
 		},
 		
@@ -156,41 +165,34 @@ public class Finestra extends JFrame{
 							panel.setActionListenerMode(3);
 						}
 					},
-					//add-stillLifes-Boat
-					new ActionListener(){
-						@Override
-						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(4);
-						}
-					},
 		},
 		ActionListenerMenuItem4 = {
 					//add-oscillators-blinker
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(5);	
+							panel.setActionListenerMode(4);	
 						}
 					},
 					//add-oscillators-toad
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(6);				
+							panel.setActionListenerMode(5);				
 						}
 					},
 					//add-oscillators-beacon
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(7);						
+							panel.setActionListenerMode(6);						
 						}
 					},
 					//add-oscillators-pulsar
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(8);							
+							panel.setActionListenerMode(7);							
 						}
 					},
 		},
@@ -199,21 +201,21 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(9);					
+							panel.setActionListenerMode(8);					
 						}
 					},
 					//add-spaceships-lightweight spaceship
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(10);							
+							panel.setActionListenerMode(9);							
 						}
 					},
 					//add-spaceships-spaceship
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(11);							
+							panel.setActionListenerMode(10);							
 						}
 					}
 			},
@@ -225,7 +227,7 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							panel.setActionListenerMode(-1);
+							
 							}
 					},
 			},

@@ -75,38 +75,31 @@ public class Griglia extends JPanel {
 								
 								break;	
 							}
-							case 4:{ 
-									//add boat
-									array = campo.getArray();
-									setColor();
-								
-								break;	
-							}
-							case 5:{
+							case 4:{
 									campo.addBlinkerHorizontal(y, x);
 									array = campo.getArray();
 									setColor();
 								break;	
 							}
-							case 6:{  
+							case 5:{  
 									campo.addToad(y, x);
 									array = campo.getArray();
 									setColor();
 								break;	
 							}
-							case 7:{
+							case 6:{
 									campo.addBeacon(y, x);
 									array = campo.getArray();
 									setColor();
 								break;	
 							}
-							case 8:{
+							case 7:{
 									campo.addPulsar(y, x);
 									array = campo.getArray();
 									setColor();
 								break;	
 							}
-							case 9:{
+							case 8:{
 								  
 									campo.addGlider(y, x);
 									array = campo.getArray();
@@ -114,7 +107,7 @@ public class Griglia extends JPanel {
 								
 								break;	
 							}
-							case 10:{
+							case 9:{
 								
 									campo.addLightweight(x, y);
 									array = campo.getArray();
@@ -122,7 +115,7 @@ public class Griglia extends JPanel {
 								
 								break;	
 							}
-							case 11:{
+							case 10:{
 								  
 									campo.addShip(x, y);
 									array = campo.getArray();

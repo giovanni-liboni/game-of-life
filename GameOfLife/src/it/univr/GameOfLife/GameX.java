@@ -1,6 +1,7 @@
 package it.univr.GameOfLife;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 @SuppressWarnings("serial")
@@ -33,19 +34,19 @@ public class GameX extends JFrame {
 		menuItem0 ={
 				new JMenuItem("Open..."),//0
 				new JMenuItem("Save..."),//1
-				new JMenuItem("Modifica dimensioni(solo per sviluppo)"),//2
-				new JMenuItem("Modifica numero di Threads"),//3
-				new JMenuItem("Esci")//4
+				new JMenuItem("Change size"),//2
+				new JMenuItem("Change numbers of Threads"),//3
+				new JMenuItem("Exit")//4
 		},
 		menuItem1 ={
-				new JMenuItem("Campo casuale"),//5
+				new JMenuItem("Casual game"),//5
 				new JMenuItem("Change Colour"),//6
+				new JMenuItem("Kill Mode"),
 		},
 		menuItem3 = {
 				new JMenuItem("Blocks"),//7
 				new JMenuItem("Beehive"),//8
 				new JMenuItem("Loaf"),//9
-				new JMenuItem("Boat")//10
 		},
 		menuItem4 = {		
 				new JMenuItem("Blinker"),//11
