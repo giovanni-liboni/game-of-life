@@ -198,11 +198,11 @@ public class Dialog{
 	}
 	public void dimSet(){
 		String str;
-		int dim = 50;
+		int dim = 0;
 		
 		do{
 			str = JOptionPane.showInputDialog (
-					   "Insert square's length side:", 50);
+					   "Insert square's length side:");
 				try{
 					int temp = Integer.parseInt(str);
 					if(temp > 0){
@@ -213,12 +213,13 @@ public class Dialog{
 								"Inserire numero maggiore di 0.", "Attenzione!", JOptionPane.WARNING_MESSAGE);
 					
 				}
-				catch(NumberFormatException e){
-			}
+				catch(NumberFormatException e){;}
+				finally{;}
+				
 			}
 			while(dim < 0);
 		
-			Finestra.X = dim;
+			Finestra.dim = dim;
 			Finestra.cont.remove(Finestra.panel);
 			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));
 			Finestra.cont.add(Finestra.panel);
