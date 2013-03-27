@@ -22,9 +22,11 @@ public class GenThreadsNextGeneration{
 	 */
 	private Cell[][] last;
 	/**
-	 * Inizializza gli arrays first e last, copia other in first, crea le threads e aspetta la loro fine. Copia l'array temporaneo in first.
+	 * This constructor initializes the "first" and "last" array, copies other in first, creates the threads and waits their finish. Copies the temporary array into first.
 	 * @param numOfThreads
+	 * is the number of threads used for the operations.
 	 * @param other
+	 * is the array of current cell's array.
 	 */
 	public GenThreadsNextGeneration(int numOfThreads, Cell[][] other){
 		/*
@@ -55,10 +57,17 @@ public class GenThreadsNextGeneration{
 		waitForThreadsToFinish(slaves);
 		/*
 		 * Copio i due array, in questo modo la versione definitiva
-		 * sarà in first
+		 * sarï¿½ in first
 		 */
 		first = last;
 	}
+	/**
+	 * This method is used for creating the threads which will be used for the game.
+	 * @param numOfThreads
+	 * is the number of threads used for this method.
+	 * @return
+	 * returns the threads ready for working.
+	 */
 	private SingleThread[] createThreads(int numOfThreads){
 		SingleThread[] slaves = new SingleThread[numOfThreads];
 		for(int pos=0; pos < numOfThreads; ++pos){
@@ -66,6 +75,11 @@ public class GenThreadsNextGeneration{
 		}
 		return slaves;
 	}
+	/**
+	 * This constructor is used for waiting others threads to finish their work.
+	 * @param slaves
+	 * are the threads used for working.
+	 */
 	private void waitForThreadsToFinish(SingleThread[] slaves) {
 		
 		for (SingleThread slave: slaves)
@@ -75,6 +89,9 @@ public class GenThreadsNextGeneration{
 			catch (InterruptedException e) {}
 			finally{;}
 	}
+	/**
+	 * This constructor is used for starting every single thread for the rispective work.
+	 */
 	private class SingleThread extends Thread{
 		int yThread;
 		@Override
@@ -90,6 +107,11 @@ public class GenThreadsNextGeneration{
 			while(yThread < first.length);
 		}
 	}
+	/**
+	 * This constructor is used for calculating the number of rows.
+	 * @param y
+	 * is the number of rows.
+	 */
 	private void calcoloRiga(int y){
 		for(int x= 0; x<first[0].length;++x){
 			if(first[y][x].isDeath()){
@@ -113,6 +135,15 @@ public class GenThreadsNextGeneration{
 			}
 		}
 	}
+	/**
+	 * This method is used for calculating the number of cells into the main game grid.
+	 * @param rows
+	 * is the number of rows used for calculating the number of cells.
+	 * @param columns
+	 * is the number of columns used for calculating the number of cells.
+	 * @return
+	 * returns the number of cells into the main game grid.
+	 */
 	private int contCellule(int rows, int columns){
 		int res=0;
 		
@@ -141,9 +172,19 @@ public class GenThreadsNextGeneration{
 		
 		return res;
 		}
+	/**
+	 * This method is used for getting the first cell array.
+	 * @return
+	 * returns the first cell array.
+	 */
 	public Cell[][] getFirst() {
 		return first;
 	}
+	/**
+	 * This method is used for getting the cell that are off the main game grid.
+	 * @return
+	 * returns the number of cells that are off the main game grid.
+	 */
 	public int getCellOff() {
 		return cellOff;
 	}

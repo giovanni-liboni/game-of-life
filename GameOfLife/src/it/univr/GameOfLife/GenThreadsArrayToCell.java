@@ -4,16 +4,35 @@ public class GenThreadsArrayToCell{
 	private boolean[][] array;
 	private Cell[][] campo;
 	private int y=0;
-		
+	
+	/**
+	 * This method creates the thread's array and waits for every threads to stop
+	 * @param numOfThreads
+	 * is the number of threads
+	 * @param array
+	 * is a boolean array.
+	 */
 	public GenThreadsArrayToCell(int numOfThreads, boolean[][] array){
 			this.array = array;
 			this.campo = new Cell[array.length][array[0].length];
 			SingleThread[] slaves = createThreads(numOfThreads);
 			waitForThreadsToFinish(slaves);
 		}
+	/**
+	 * This method is used for obtaining the game field.
+	 * @return
+	 * returns the current field.
+	 */
 	public Cell[][] getCampo(){
 		return this.campo;
 	}
+	/**
+	 * This method creates the threads and starts them.
+	 * @param numOfThreads
+	 * is the number of threads to use.
+	 * @return
+	 * returns the treads generated.
+	 */
 	private SingleThread[] createThreads(int numOfThreads){
 			SingleThread[] slaves = new SingleThread[numOfThreads];
 			for(int pos=0; pos < numOfThreads; pos++){
@@ -21,6 +40,11 @@ public class GenThreadsArrayToCell{
 			}
 			return slaves;
 		}
+	/**
+	 * This method is used for waiting every threads to finish their work.
+	 * @param slaves
+	 * is the array which contains the threads
+	 */
 	private void waitForThreadsToFinish(SingleThread[] slaves) {
 			// aspettiamo che abbiano finito di lavorare
 			for (SingleThread slave: slaves)
@@ -32,6 +56,9 @@ public class GenThreadsArrayToCell{
 				}
 				finally{;}
 		}
+	/**
+	 * This method is used for starting the work of every thread.
+	 */
 	private class SingleThread extends Thread{
 			private int yThread;
 			@Override

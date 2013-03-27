@@ -12,9 +12,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class Dialog{
-	
-	/*
-	 * Finestra che ritorna il numero di threads inserito
+	/**
+	 * This method is used for creating a new frame which asks for the desidered number of thread to use.
 	 */
 	public void numOfThreads(){
 		String str;
@@ -41,6 +40,15 @@ public class Dialog{
 		// modifico il numero di threads
 		Finestra.numOfThreads = numOfThreads;
 	}
+	/**
+	 * This method is used for creating the frame which will asks for file name for saving the current game grid.
+	 * @param campo
+	 * Used for obtaining the Game field to use.
+	 * @param contGen
+	 * Used for obtaining the number of generation passed since this frame is called.
+	 * @param numOfThreads
+	 * Used for obtaining the number of threads used in the game.
+	 */
 	public void fileSave(Core campo,int contGen, int numOfThreads ){
 		
 		String
@@ -91,6 +99,9 @@ public class Dialog{
 			
 		}
 	}
+	/**
+	 * This method is used for creating the frame which will asks for file name for opening a saved game grid.
+	 */
 	public void fileOpen(){
 		boolean statusFile = false;
 		int temp;

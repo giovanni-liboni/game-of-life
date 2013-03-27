@@ -14,6 +14,9 @@ public class GameX extends JFrame {
 	 * Bisogna rendere private i menu
 	 * - Aggiungere i metodi necessari
 	 */
+	/**
+	 * This Method Creates an array of JMenu[], which is used in JMenuBar.
+	 */
 	final JMenu[] menu = {
 			new JMenu("Menu"),//0
 			new JMenu("Game"),//1
@@ -23,7 +26,9 @@ public class GameX extends JFrame {
 				new JMenu("Spaceships"),//5
 			new JMenu("?")//6
 	};
-	
+	/**
+	 * This method creates an array of JMenuItem that will be included in JMenu's array.
+	 */
 	final JMenuItem[] 
 		menuItem0 ={
 				new JMenuItem("Open..."),//0
@@ -56,16 +61,21 @@ public class GameX extends JFrame {
 		menuItem6 = {
 				new JMenuItem("?")//18
 		};
-	
+	/**
+	 * This method creates the button, that will be under JMenuBar, exactly in the north section of
+	 * main frame's BorderLayout
+	 */
 	final JButton[] buttons = {
 				new JButton("Start"),
 				new JButton("Pause"),
 				new JButton("Reset"),
 				new JButton("Next")
 	};
-	
-	
-
+	/**
+	 * This method is used for creating main game's frame (game grid).
+	 * @param numOfThreads
+	 * is used for parsing the number of threads used for creating the main game grid.
+	 */
 	public GameX(int numOfThreads){
 
 		setTitle("GameOfLife");
@@ -156,23 +166,44 @@ public class GameX extends JFrame {
 		
 		 		
 	}
-
+	/**
+	 * This method obtains the slider
+	 * @return
+	 * returns the slider.
+	 */
 	public JSlider getSlider() {
 		return slider;
 	}
-
+	/**
+	 * This method obtains the number of threads of the label (situated in the south section of
+	 * main game's frame)
+	 * @return
+	 * returns the number of threads of the label
+	 */
 	public JLabel getNumOfThreadLabel() {
 		return numOfThreadLabel;
 	}
-
+	/**
+	 * This method sets the number of threads in the JLabel.
+	 * @param str
+	 * is the number of threads to be written in JLabel.
+	 */
 	public void setNumOfThreadLabel(String str) {
 		this.numOfThreadLabel.setText(str);
 	}
-
+	/**
+	 * This method is used for getting the population's current counter of JLabel.
+	 * @return
+	 * returns the current generation Label.
+	 */
 	public JLabel getContGenLabel() {
 		return contGenLabel;
 	}
-
+	/**
+	 * This method sets the generation counter in JLabel.
+	 * @param str
+	 * is the number of current population.
+	 */
 	public void setContGenLabel(String str) {
 		this.contGenLabel.setText(str);
 	}
