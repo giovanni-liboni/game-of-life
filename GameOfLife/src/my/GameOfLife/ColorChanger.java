@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 @SuppressWarnings("serial")
 public class ColorChanger extends JFrame{
@@ -24,7 +25,7 @@ public class ColorChanger extends JFrame{
 	 */
 	public ColorChanger(final Griglia panel){
 		changeColor.setBounds(50, 50, 300, 200);
-		changeColor.setDefaultCloseOperation(changeColor.DISPOSE_ON_CLOSE);
+		changeColor.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		changeContainer.setLayout(new GridLayout(3, 3));
 		JLabel[] chooseLabels = {new JLabel("Life",JLabel.CENTER), new JLabel("No Life",JLabel.CENTER), new JLabel("Death",JLabel.CENTER)};
 		final JButton[] chooseButtons = {new JButton(), new JButton(), new JButton(), new JButton("Random"), new JButton("Set"), new JButton("Default")};
