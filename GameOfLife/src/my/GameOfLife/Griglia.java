@@ -8,7 +8,6 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Griglia extends JPanel {
-	
 	private boolean[][] array;
 	private Core campo;
 	private int max;

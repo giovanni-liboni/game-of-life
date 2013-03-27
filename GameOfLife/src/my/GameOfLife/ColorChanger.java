@@ -12,7 +12,13 @@ import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class ColorChanger extends JFrame{
+	/**
+	 * Used for creating a new frame with a custom title.
+	 */
 	private JFrame changeColor = new JFrame("Choose your favorite color!");
+	/**
+	 * Used for taking the ContentPane from the new frame.
+	 */
 	private Container changeContainer = changeColor.getContentPane();
 	/**
 	 * This method is used for creating a new frame, which contains the color selection for life, no-life and death status.
@@ -20,13 +26,19 @@ public class ColorChanger extends JFrame{
 	 * (self-understanding, it also close ColorChanger's frame), and a default button that sets cell's colors to the 
 	 * default value (blue to life, white to no-life and red to death).
 	 * @param panel
-	 * is used for taking information and setting values about Cell's color
+	 * is used for taking information and setting values about Cell's color.
 	 */
 	public ColorChanger(final Griglia panel){
 		changeColor.setBounds(50, 50, 300, 200);
 		changeColor.setDefaultCloseOperation(changeColor.DISPOSE_ON_CLOSE);
 		changeContainer.setLayout(new GridLayout(3, 3));
+		/**
+		 * Creates a new array of JLabel that will be used in the frame.
+		 */
 		JLabel[] chooseLabels = {new JLabel("Life",JLabel.CENTER), new JLabel("No Life",JLabel.CENTER), new JLabel("Death",JLabel.CENTER)};
+		/**
+		 * Creates a new array of JButton that will be used in the frame.
+		 */
 		final JButton[] chooseButtons = {new JButton(), new JButton(), new JButton(), new JButton("Random"), new JButton("Set"), new JButton("Default")};
 		for(int pos=0;pos<chooseLabels.length;pos++)
 			changeContainer.add(chooseLabels[pos]);
