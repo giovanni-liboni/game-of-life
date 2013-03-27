@@ -14,10 +14,6 @@ public class GenThreadsNextGeneration{
 	 */
 	private Cell[][] first;
 	/**
-	 * Intero per conteggiare le cellule nello stato false
-	 */
-	private int cellOff=0;
-	/**
 	 * Array di supporto per il calcolo della Next Generation
 	 */
 	private Cell[][] last;
@@ -57,7 +53,7 @@ public class GenThreadsNextGeneration{
 		waitForThreadsToFinish(slaves);
 		/*
 		 * Copio i due array, in questo modo la versione definitiva
-		 * sarï¿½ in first
+		 * sarà in first
 		 */
 		first = last;
 	}
@@ -116,9 +112,6 @@ public class GenThreadsNextGeneration{
 		for(int x= 0; x<first[0].length;++x){
 			if(first[y][x].isDeath()){
 				last[y][x] = new Cell(false, true);
-				synchronized(GenThreadsNextGeneration.this){
-					cellOff++;
-				}
 			}
 			else{
 				int i = this.contCellule(y, x);
@@ -128,9 +121,6 @@ public class GenThreadsNextGeneration{
 				}
 				else {
 					last[y][x].setLife(false);
-					synchronized(GenThreadsNextGeneration.this){
-						cellOff++;
-					}
 				}
 			}
 		}
@@ -179,14 +169,6 @@ public class GenThreadsNextGeneration{
 	 */
 	public Cell[][] getFirst() {
 		return first;
-	}
-	/**
-	 * This method is used for getting the cell that are off the main game grid.
-	 * @return
-	 * returns the number of cells that are off the main game grid.
-	 */
-	public int getCellOff() {
-		return cellOff;
 	}
 
 }

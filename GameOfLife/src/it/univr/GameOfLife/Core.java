@@ -2,10 +2,6 @@ package it.univr.GameOfLife;
 
 public class Core {
 	/**
-	 * Unused ... CANCEL!
-	 */
-	private int cellOff=0;
-	/**
 	 * Creates a new Cell array of cells.
 	 */
 	private Cell first[][];
@@ -31,14 +27,6 @@ public class Core {
 	public Core(int numOfThreads, boolean[][] init){
 		first = new Cell[init.length][init[0].length];
 		arrayToCell(init);
-	}
-	/**
-	 * This method is used for taking information about the number of dead cells.
-	 * @return
-	 * returns the number of dead cells.
-	 */
-	public int getCellOff(){
-		return cellOff;
 	}
 	/**
 	 * This method is used for taking informations about cell's death.
@@ -145,9 +133,7 @@ public class Core {
 	 * is used for calculating cell's next generation.
 	 */
 	public void nextGenerationThreads(int numOfThreads){
-		cellOff=0;
 		GenThreadsNextGeneration gen = new GenThreadsNextGeneration(numOfThreads, first);
-		cellOff = gen.getCellOff();
 		first = gen.getFirst();
 	}
 	/**

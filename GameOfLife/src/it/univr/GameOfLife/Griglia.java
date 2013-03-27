@@ -123,6 +123,14 @@ public class Griglia extends JPanel {
 								
 								break;	
 							}
+							case 11:{
+								  
+								campo.addCell(x, y);
+								array = campo.getArray();
+								setColor();
+							
+							break;	
+						}
 							default:
 								  
 									((Button)e.getSource()).setBackground(deathColor);
