@@ -115,7 +115,10 @@ public class Core {
 	 * is used for knowing the exact cell's position.
 	 */
 	public void killCell(int row, int column){
-		first[row][column].setLife(false);
+		if(first[row][column] != null){
+			first[row][column].setLife(false);
+		}
+		
 	}
 	/**
 	 * This method is used for adding a cell.

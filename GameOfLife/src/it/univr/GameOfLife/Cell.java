@@ -7,10 +7,6 @@ public class Cell {
 	 */
 	private boolean life, death;
 	/**
-	 * Used for counting the number of cell's neighbors.
-	 */
-	private int vicini=0;
-	/**
 	 * This constructor is used for creating a new cell setting the life and death parameters.
 	 * @param life
 	 * is used for setting life value (true = life, false = no life).
@@ -55,36 +51,6 @@ public class Cell {
 	 */
 	public void setDeath(boolean death) {
 		this.death = death;
-	}
-	/**
-	 * Copia i campi della cellula other in this
-	 */
-	/**
-	 * This method is used for taking informations about cell's neighbors
-	 * @return
-	 * returns the number of cell's neighbors
-	 */
-	public int getVicini() {
-		return vicini;
-	}
-	/**
-	 * This method is used for setting the number of cell's neighbors
-	 * @param i
-	 * is used for setting the number of cell's neighbors
-	 */
-	public void setVicini(int i){
-		vicini=i;
-	}
-	/**
-	 * This method is used for setting informations about cell's life status
-	 * @param other
-	 * is used for taking informations from "other" cell (life, death and neighbors)
-	 */
-	public void copy(Cell other){
-
-		life = other.isLife();
-		death = other.isDeath();
-		vicini = other.getVicini();
 	}
 	
 }

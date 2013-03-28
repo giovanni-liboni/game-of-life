@@ -14,9 +14,9 @@ public class Griglia extends JPanel {
 	private int max;
 	private Button[][] buttons;
 	private int actionListenerMode = -1;
-	private Color lifeColor = Color.BLUE;//case 1
-	private Color noLifeColor = Color.WHITE;//case 2
-	private Color deathColor = Color.RED;//case other
+	private Color lifeColor = Color.BLUE;
+	private Color noLifeColor = Color.WHITE;
+	private Color deathColor = Color.RED;
 	
 	public Color getColor(int whatColor){
 		switch(whatColor){
