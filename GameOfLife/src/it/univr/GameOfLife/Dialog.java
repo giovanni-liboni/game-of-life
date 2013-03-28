@@ -246,4 +246,7 @@ public class Dialog{
 			else
 			{}
 	}
+	public void aboutAuthors(){
+		JOptionPane.showMessageDialog(null, "", "Attenzione!", JOptionPane.WARNING_MESSAGE);
+	}
 }
