@@ -6,10 +6,21 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 public class GameX extends JFrame {
-	
+	/**
+	 * This instantiates two panels in main game window.
+	 */
 	private JPanel up, down;
+	/**
+	 * This instantiates the JMenuBar.
+	 */
 	private JMenuBar barraDeiMenu;
+	/**
+	 * This instantiates the JSlider that will configure game speed.
+	 */
 	private JSlider slider;
+	/**
+	 * This instantiate the JLabels that will be in the south panel.
+	 */
 	private JLabel numOfThreadLabel,contGenLabel;
 	/*
 	 * Bisogna rendere private i menu
@@ -165,8 +176,6 @@ public class GameX extends JFrame {
 		/*Disegno la parte sud */
 				
 		add(down, BorderLayout.SOUTH);
-		
-		 		
 	}
 	/**
 	 * This method obtains the slider
@@ -182,9 +191,9 @@ public class GameX extends JFrame {
 	 * @return
 	 * returns the number of threads of the label
 	 */
-	public JLabel getNumOfThreadLabel() {
-		return numOfThreadLabel;
-	}
+//	public JLabel getNumOfThreadLabel() {
+//		return numOfThreadLabel;
+//	}
 	/**
 	 * This method sets the number of threads in the JLabel.
 	 * @param str
@@ -198,9 +207,9 @@ public class GameX extends JFrame {
 	 * @return
 	 * returns the current generation Label.
 	 */
-	public JLabel getContGenLabel() {
-		return contGenLabel;
-	}
+//	public JLabel getContGenLabel() {
+//		return contGenLabel;
+//	}
 	/**
 	 * This method sets the generation counter in JLabel.
 	 * @param str

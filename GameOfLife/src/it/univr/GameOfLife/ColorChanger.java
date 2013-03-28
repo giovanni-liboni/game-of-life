@@ -98,9 +98,6 @@ public class ColorChanger extends JFrame{
 				}
 			});
 		}
-		
 		changeColor.setVisible(true);
-		
-		}
-	
+		}	
 }

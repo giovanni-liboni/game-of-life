@@ -9,9 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.xml.transform.OutputKeys;
 
 public class Dialog{
 	/**
@@ -209,6 +207,9 @@ public class Dialog{
 		JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 		}
 	}
+	/**
+	 * This method is used for setting the game grid size.
+	 */
 	public void dimSet(){
 		String str;
 		int dim = 0;
@@ -246,6 +247,9 @@ public class Dialog{
 			else
 			{}
 	}
+	/**
+	 * This method is used for showing informations about the author of this game.
+	 */
 	public void aboutAuthors(){
 		JOptionPane.showMessageDialog(null, "<html><center>Giovanni Liboni & Pinna Cristian<br>March 2013</center></html>", "About the authors...", JOptionPane.PLAIN_MESSAGE);
 	}

@@ -1,20 +1,16 @@
 package it.univr.GameOfLife;
 
-/**
- * @author Giovanni
- *
- */
 public class GenThreadsNextGeneration{
 	/**
-	 * Intero per la memoriazzazione della riga corrente
+	 * Instantiates the current row.
 	 */
 	private int y=0;
 	/**
-	 * Array di Cell primario
+	 * Instantiates the main boolean Cell array.
 	 */
 	private Cell[][] first;
 	/**
-	 * Array di supporto per il calcolo della Next Generation
+	 * Instantiates the auxiliary array that will be used for calculating next generation.
 	 */
 	private Cell[][] last;
 	/**
@@ -53,7 +49,7 @@ public class GenThreadsNextGeneration{
 		waitForThreadsToFinish(slaves);
 		/*
 		 * Copio i due array, in questo modo la versione definitiva
-		 * sarà in first
+		 * sarï¿½ in first
 		 */
 		first = last;
 	}
@@ -72,7 +68,7 @@ public class GenThreadsNextGeneration{
 		return slaves;
 	}
 	/**
-	 * This constructor is used for waiting others threads to finish their work.
+	 * This method is used for waiting others threads to finish their work.
 	 * @param slaves
 	 * are the threads used for working.
 	 */
@@ -86,7 +82,7 @@ public class GenThreadsNextGeneration{
 			finally{;}
 	}
 	/**
-	 * This constructor is used for starting every single thread for the rispective work.
+	 * This method is used for starting every single thread for the rispective work.
 	 */
 	private class SingleThread extends Thread{
 		int yThread;
@@ -104,7 +100,7 @@ public class GenThreadsNextGeneration{
 		}
 	}
 	/**
-	 * This constructor is used for calculating the number of rows.
+	 * This method is used for calculating the number of rows.
 	 * @param y
 	 * is the number of rows.
 	 */
@@ -161,7 +157,7 @@ public class GenThreadsNextGeneration{
 			res++;
 		
 		return res;
-		}
+	}
 	/**
 	 * This method is used for getting the first cell array.
 	 * @return
@@ -170,5 +166,4 @@ public class GenThreadsNextGeneration{
 	public Cell[][] getFirst() {
 		return first;
 	}
-
 }

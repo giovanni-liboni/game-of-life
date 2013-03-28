@@ -9,7 +9,7 @@ public class Core {
 	 * This method creates a new field using:
 	 * @param numOfThreads
 	 * is used for calculating a new casual array
-	 * @param dim
+	 * @param size
 	 * is used for setting the size of the array
 	 */
 	public Core(int numOfThreads, int size){
@@ -20,7 +20,7 @@ public class Core {
 	/** 
 	 * This method creates a new field using:
 	 * @param numOfThreads
-	 * not used.
+	 * is used for obtaining the number of threads used for calculating the game field array.
 	 * @param init
 	 * is used for setting the row's number of the array.
 	 */
@@ -49,9 +49,9 @@ public class Core {
 	 * @return
 	 * returns cell's life status.
 	 */
-	public boolean isLife(int y, int x){
-		return first[y][x].isLife();
-	}
+//	public boolean isLife(int y, int x){
+//		return first[y][x].isLife();
+//	}
 	/**
 	 * This method transforms an array of boolean into an array of cells.
 	 * @param init
@@ -114,12 +114,12 @@ public class Core {
 	 * @param column
 	 * is used for knowing the exact cell's position.
 	 */
-	public void killCell(int row, int column){
-		if(first[row][column] != null){
-			first[row][column].setLife(false);
-		}
-		
-	}
+//	public void killCell(int row, int column){
+//		if(first[row][column] != null){
+//			first[row][column].setLife(false);
+//		}
+//		
+//	}
 	/**
 	 * This method is used for adding a cell.
 	 * @param row
@@ -182,8 +182,7 @@ public class Core {
 	 * @param x
 	 * is used for knowing the exact cell's position.
 	 */
-	public void addBlinkerVertical(int y, int x){		
-
+	public void addBlinkerVertical(int y, int x){
 			setLifeFirstTrue(y+1,x);
 			setLifeFirstTrue(y-1,x);
 			setLifeFirstTrue(y,x);
@@ -223,7 +222,6 @@ public class Core {
 	 * is used for knowing the exact cell's position.
 	 */
 	public void addBeacon(int y, int x){
-		
 			addBlock(y,x);
 			addBlock(y-2,x+2);
 	}
@@ -265,29 +263,29 @@ public class Core {
 	 * @param x
 	 * is used for knowing the exact cell's position.
 	 */
-	public void addMyPulsar(int y, int x){
-			
-			this.addBlinkerHorizontal(y-1, x+3);
-			this.addBlinkerHorizontal(y-6, x+3);
-			this.addBlinkerVertical(y-3, x+1);
-			this.addBlinkerVertical(y-3, x+5);
-			
-			this.addBlinkerHorizontal(y+1, x+3);
-			this.addBlinkerHorizontal(y+6, x+3);
-			this.addBlinkerVertical(y+3, x+1);
-			this.addBlinkerVertical(y+3, x+5);
-			
-			this.addBlinkerHorizontal(y-1, x-3);
-			this.addBlinkerHorizontal(y-6, x-3);
-			this.addBlinkerVertical(y-3, x-1);
-			this.addBlinkerVertical(y-3, x-5);
-			
-			this.addBlinkerHorizontal(y+1, x-3);
-			this.addBlinkerHorizontal(y+6, x-3);
-			this.addBlinkerVertical(y+3, x-1);
-			this.addBlinkerVertical(y+3, x-5);
-			
-	}
+//	public void addMyPulsar(int y, int x){
+//			
+//			this.addBlinkerHorizontal(y-1, x+3);
+//			this.addBlinkerHorizontal(y-6, x+3);
+//			this.addBlinkerVertical(y-3, x+1);
+//			this.addBlinkerVertical(y-3, x+5);
+//			
+//			this.addBlinkerHorizontal(y+1, x+3);
+//			this.addBlinkerHorizontal(y+6, x+3);
+//			this.addBlinkerVertical(y+3, x+1);
+//			this.addBlinkerVertical(y+3, x+5);
+//			
+//			this.addBlinkerHorizontal(y-1, x-3);
+//			this.addBlinkerHorizontal(y-6, x-3);
+//			this.addBlinkerVertical(y-3, x-1);
+//			this.addBlinkerVertical(y-3, x-5);
+//			
+//			this.addBlinkerHorizontal(y+1, x-3);
+//			this.addBlinkerHorizontal(y+6, x-3);
+//			this.addBlinkerVertical(y+3, x-1);
+//			this.addBlinkerVertical(y+3, x-5);
+//			
+//	}
 	/**
 	 * This method is used for adding a LightWeight into game grid.
 	 * @param y
@@ -332,6 +330,13 @@ public class Core {
 			this.addBlinkerVertical(y_+3, x_-1);
 			this.addBlinkerVertical(y_+3, x_-6);
 	}
+	/**
+	 * This method is used for adding a Glider into game grid
+	 * @param y
+	 * is used for knowing the exact cell's position
+	 * @param x
+	 * is used for knowing the exact cell's position
+	 */
 	public void addGlider(int y, int x){
 		setLifeFirstTrue(y, x);
 		this.addBlinkerVertical(y, x-1);

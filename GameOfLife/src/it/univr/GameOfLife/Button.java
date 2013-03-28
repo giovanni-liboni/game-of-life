@@ -20,7 +20,6 @@ public class Button extends JButton{
 		this.column = x;
 		this.setVisible(true);
 	}
-
 	/**
 	 * This method is used for taking information of current row.
 	 * @return
@@ -29,8 +28,6 @@ public class Button extends JButton{
 	public int getRow() {
 		return row;
 	}
-
-
 	/**
 	 * This method is used for taking information of current column.
 	 * @return
@@ -38,7 +35,5 @@ public class Button extends JButton{
 	 */
 	public int getColumn() {
 		return column;
-	}
-
-	
+	}	
 }

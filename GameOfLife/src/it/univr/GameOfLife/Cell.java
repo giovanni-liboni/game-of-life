@@ -52,5 +52,4 @@ public class Cell {
 	public void setDeath(boolean death) {
 		this.death = death;
 	}
-	
 }

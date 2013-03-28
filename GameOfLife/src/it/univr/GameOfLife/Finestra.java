@@ -7,16 +7,36 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class Finestra extends JFrame{
-	
+	/**
+	 * Creates a new instance of Dialog called "dialog".
+	 */
 	private Dialog dialog;
+	/**
+	 * It's used for setting the status of the game. If true the game starts, else stops.
+	 */
 	protected static boolean gameStatus; // if true -> start else pause
+	/**
+	 * Creates a new instance of GameX called "frame".
+	 */
 	protected static GameX frame;
+	/**
+	 * Creates a new instance of Griglia called "panel".
+	 */
 	protected static Griglia panel;
+	/**
+	 * Used for setting default values (number of threads, dimension and game generation counter).
+	 */
 	protected static int 
 		numOfThreads=1,
 		dim=60,
 		contGen=0;
+	/**
+	 * Creates a new instance of Container called "cont".
+	 */
 	protected static Container cont;
+	/**
+	 * Is used for setting the runnable mode of the game.
+	 */
 	final Runnable doNextGen = new Runnable() {
 	     public void run() {
 	         nextGen();

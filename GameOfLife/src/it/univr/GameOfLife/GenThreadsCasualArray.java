@@ -3,15 +3,24 @@ package it.univr.GameOfLife;
 import java.util.Random;
 
 public class GenThreadsCasualArray{
+	/**
+	 * Instantiates a new Random().
+	 */
 	private Random random = new Random();
+	/**
+	 * Instantiates a new game boolean array.
+	 */
 	public boolean array[][];
+	/**
+	 * Instantiates the square's main game side.
+	 */
 	private int y=0;
 	/**
 	 * This constructor is used for creating a random game field.
 	 * @param numOfThreads
 	 * is the number of threads used for creating the field.
-	 * @param y
-	 * @param x
+	 * @param size
+	 * is the main game's grid length.
 	 */
 	public GenThreadsCasualArray(int numOfThreads, int size){
 			array = new boolean[size][size];
@@ -41,7 +50,7 @@ public class GenThreadsCasualArray{
 			return slaves;
 		}
 	/**
-	 * This constructor is used for waiting others threads to finish their work.
+	 * This method is used for waiting others threads to finish their work.
 	 * @param slaves
 	 * are the threads used for working.
 	 */
@@ -57,7 +66,7 @@ public class GenThreadsCasualArray{
 				finally{;}
 		}
 	/**
-	 * This constructor is used for starting every single thread for the rispective work.
+	 * This method is used for starting every single thread for the rispective work.
 	 */
 	private class SingleThread extends Thread{
 			private int yThread;
