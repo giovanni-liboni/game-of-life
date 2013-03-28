@@ -234,7 +234,7 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							
+								dialog.aboutAuthors();
 							}
 					},
 			},

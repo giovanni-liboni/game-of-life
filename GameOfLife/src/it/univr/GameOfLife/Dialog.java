@@ -247,6 +247,6 @@ public class Dialog{
 			{}
 	}
 	public void aboutAuthors(){
-		JOptionPane.showMessageDialog(null, "", "Attenzione!", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, "<html><center>Giovanni Liboni & Pinna Cristian<br>March 2013</center></html>", "About the authors...", JOptionPane.PLAIN_MESSAGE);
 	}
 }
