@@ -223,16 +223,14 @@ public class Dialog{
 					else if(temp < 0)
 						JOptionPane.showMessageDialog(null, "Attenzione valore inserito non valido!\n"+
 								"Inserire numero maggiore di 0.", "Attenzione!", JOptionPane.WARNING_MESSAGE);
-					if(str=="")
-						dim = -1;
 				}
 				catch(NumberFormatException e){;}
 				finally{;}
 				
 			}
 			while(dim < 0);
-			if(str=="")
-				return;
+			if(str!=null)
+			{
 			Finestra.dim = dim;
 			Finestra.cont.remove(Finestra.panel);
 			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));
@@ -244,5 +242,8 @@ public class Dialog{
 			Finestra. contGen = 0;
 			Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
 			Finestra. gameStatus = false;
+			}
+			else
+			{}
 	}
 }
