@@ -9,7 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.xml.transform.OutputKeys;
 
 public class Dialog{
 	/**
@@ -212,8 +214,7 @@ public class Dialog{
 		int dim = 0;
 		
 		do{
-			str = JOptionPane.showInputDialog (
-					   "Insert square's length side:");
+			str = JOptionPane.showInputDialog ("Insert square's length side:");
 				try{
 					int temp = Integer.parseInt(str);
 					if(temp > 0){
@@ -222,14 +223,16 @@ public class Dialog{
 					else if(temp < 0)
 						JOptionPane.showMessageDialog(null, "Attenzione valore inserito non valido!\n"+
 								"Inserire numero maggiore di 0.", "Attenzione!", JOptionPane.WARNING_MESSAGE);
-					
+					if(str=="")
+						dim = -1;
 				}
 				catch(NumberFormatException e){;}
 				finally{;}
 				
 			}
 			while(dim < 0);
-		
+			if(str=="")
+				return;
 			Finestra.dim = dim;
 			Finestra.cont.remove(Finestra.panel);
 			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));

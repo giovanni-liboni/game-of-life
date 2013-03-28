@@ -51,7 +51,7 @@ public class Finestra extends JFrame{
 		
 		frame.setVisible(true);
 		
-		// Assegno i menù
+		// Assegno i menï¿½
 		assegnaMenu();
 		
 	} // fine costruttore Finestra
@@ -60,7 +60,7 @@ public class Finestra extends JFrame{
 	 */
 	public void assegnaMenu(){
 		
-		/* Creo un array listener per il menù*/
+		/* Creo un array listener per il menï¿½*/
 		
 		ActionListener[] 
 				ActionListenerMenuItem0 = {
@@ -163,6 +163,13 @@ public class Finestra extends JFrame{
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							panel.setActionListenerMode(3);
+						}
+					},
+					//add-stillLifes-SingleCell
+					new ActionListener(){
+						@Override
+						public void actionPerformed(ActionEvent arg0) {
+							panel.setActionListenerMode(11);
 						}
 					},
 		},
@@ -276,7 +283,7 @@ public class Finestra extends JFrame{
 					}
 			};
 		
-		// Assegno i listener al menù
+		// Assegno i listener al menï¿½
 		
 		for (int i = 0; i < ActionListenerMenuItem0.length; ++i){
 			frame.menuItem0[i].addActionListener(ActionListenerMenuItem0[i]);

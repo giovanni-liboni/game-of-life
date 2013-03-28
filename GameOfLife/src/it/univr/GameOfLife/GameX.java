@@ -47,6 +47,7 @@ public class GameX extends JFrame {
 				new JMenuItem("Blocks"),//7
 				new JMenuItem("Beehive"),//8
 				new JMenuItem("Loaf"),//9
+				new JMenuItem("Single Cell")//10
 		},
 		menuItem4 = {		
 				new JMenuItem("Blinker"),//11

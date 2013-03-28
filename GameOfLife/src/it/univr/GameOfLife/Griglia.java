@@ -125,7 +125,7 @@ public class Griglia extends JPanel {
 							}
 							case 11:{
 								  
-								campo.addCell(x, y);
+								campo.addCell(y, x);
 								array = campo.getArray();
 								setColor();
 							
