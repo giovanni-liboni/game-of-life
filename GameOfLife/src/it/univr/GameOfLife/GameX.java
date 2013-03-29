@@ -182,16 +182,6 @@ public class GameX extends JFrame {
 		return slider;
 	}
 	/**
-	 * This method obtains the number of threads of the label (situated in the south section of
-	 * main game's frame)
-	 * @return
-	 * returns the number of threads of the label
-	 */
-	dacancellare
-//	public JLabel getNumOfThreadLabel() {
-//		return numOfThreadLabel;
-//	}
-	/**
 	 * This method sets the number of threads in the JLabel.
 	 * @param str
 	 * is the number of threads to be written in JLabel.
@@ -199,15 +189,6 @@ public class GameX extends JFrame {
 	public void setNumOfThreadLabel(String str) {
 		this.numOfThreadLabel.setText(str);
 	}
-	/**
-	 * This method is used for getting the population's current counter of JLabel.
-	 * @return
-	 * returns the current generation Label.
-	 */
-	dacancellare
-//	public JLabel getContGenLabel() {
-//		return contGenLabel;
-//	}
 	/**
 	 * This method sets the generation counter in JLabel.
 	 * @param str

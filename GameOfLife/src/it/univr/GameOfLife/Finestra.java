@@ -365,7 +365,6 @@ public class Finestra extends JFrame{
 	 */
 	private void reset(){
 		panel.reset();
-		panel.repaint();
 	}
 	/**
 	 * This method is used for drawing the current panel, using setColor() and repaint()
@@ -373,7 +372,6 @@ public class Finestra extends JFrame{
 	 */
 	private void disegna(){
 		panel.setColor();
-		panel.repaint();
 	}
 	/**
 	 * This method is used for taking time on creating nextGen()
