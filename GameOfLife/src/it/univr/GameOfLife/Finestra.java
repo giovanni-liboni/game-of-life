@@ -34,14 +34,7 @@ public class Finestra extends JFrame{
 	 * Creates a new instance of Container called "cont".
 	 */
 	protected static Container cont;
-	/**
-	 * Is used for setting the runnable mode of the game.
-	 */
-	final Runnable doNextGen = new Runnable() {
-	     public void run() {
-	         nextGen();
-	     }
-	 };
+
 	/**
 	 * This method is used for showing threads setter frame,
 	 * and then creates game main window
@@ -298,7 +291,8 @@ public class Finestra extends JFrame{
 						public void actionPerformed(ActionEvent arg0) {
 							 ++contGen;
 							 frame.setContGenLabel(String.valueOf(contGen));
-							nextGen();				
+							 panel.nextGen(numOfThreads);	
+							 disegna();
 						}
 					}
 			};
@@ -338,6 +332,7 @@ public class Finestra extends JFrame{
 		gameStatus=true;
 		Thread appThread = new Thread() {
 		     public void run() {
+		    	 
 		    	 while(gameStatus){
 		         try {
 		        	 ++contGen;
@@ -352,13 +347,27 @@ public class Finestra extends JFrame{
 		 }; appThread.start();
 	}
 	/**
-	 * This method generate the new generation on the current panel and then invokes the
+	 * Is used for setting the runnable mode of the game and generate the new generation on the current panel and then invokes the
 	 * method disegna()
 	 */
-	private void nextGen(){
-		panel.nextGen(numOfThreads);
-		disegna();
-	}
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	// HO MESSO L'IF SULLA CONDIZIONE
+	final Runnable doNextGen = new Runnable() {
+	     public void run() {
+	    	 if(gameStatus){
+	        	 panel.nextGen(numOfThreads);
+	    		 disegna();
+	    	 }
+	     }
+	 };
 	/**
 	 * This method is used for resetting the current panel, clearing it all.
 	 * It invokes reset() and repaint() on current panel
