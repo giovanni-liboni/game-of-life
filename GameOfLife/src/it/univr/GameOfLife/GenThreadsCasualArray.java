@@ -55,14 +55,12 @@ public class GenThreadsCasualArray{
 	 * are the threads used for working.
 	 */
 	private void waitForThreadsToFinish(SingleThread[] slaves) {
-			// aspettiamo che abbiano finito di lavorare
+			
 			for (SingleThread slave: slaves)
 				try {
 					slave.join();
 				}
-				catch (InterruptedException e) {
-					// qualcuno ci ha interrotti mentre aspettavamo
-				}
+				catch (InterruptedException e) {}
 				finally{;}
 		}
 	/**

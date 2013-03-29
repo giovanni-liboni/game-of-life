@@ -24,8 +24,8 @@ public class Dialog{
 								"Inserire numero maggiore di 0.", "Attenzione!", JOptionPane.WARNING_MESSAGE);
 					
 				}
-				catch(NumberFormatException e){
-			}
+				catch(NumberFormatException e){}
+				finally{;}
 			}
 			while(numOfThreads < 0);
 		
@@ -90,6 +90,7 @@ public class Dialog{
 			JOptionPane.showConfirmDialog(null, "Salvataggio non riuscito", "Attenzione!", JOptionPane.ERROR_MESSAGE);
 			
 		}
+		finally{;}
 	}
 	/**
 	 * This method is used for creating the frame which will asks for file name for opening a saved game grid.
@@ -184,6 +185,7 @@ public class Dialog{
 			catch(EOFException e){
 				JOptionPane.showConfirmDialog(null, "Caricamento completato");		
 			}
+			finally{;}
 			inStream.close();
 			
 		} 
@@ -197,6 +199,7 @@ public class Dialog{
 		catch (Exception e) {
 		JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 		}
+		finally{;}
 	}
 	/**
 	 * This method is used for setting the game grid size.
