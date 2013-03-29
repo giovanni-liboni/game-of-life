@@ -48,14 +48,11 @@ public class Dialog{
 		
 		JFileChooser c = new JFileChooser();
 		
-		int rVal = c.showSaveDialog(null);
-		if(rVal == JFileChooser.APPROVE_OPTION) {
+		int val = c.showSaveDialog(null);
+		if(val == JFileChooser.APPROVE_OPTION) {
 			fileName = c.getSelectedFile().getName();
 		}
-		if(rVal == JFileChooser.CANCEL_OPTION) {
-			return;
-		}
-		if(fileName == null){
+		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
 		}
 		File f = c.getSelectedFile();
@@ -84,9 +81,8 @@ public class Dialog{
 			
 			outStream.close();
 			
-		} catch (FileNotFoundException e) {
-			JOptionPane.showConfirmDialog(null, "File non trovato", "Attenzione!", JOptionPane.ERROR_MESSAGE);
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			JOptionPane.showConfirmDialog(null, "Salvataggio non riuscito", "Attenzione!", JOptionPane.ERROR_MESSAGE);
 			
 		}
@@ -103,15 +99,12 @@ public class Dialog{
 		
 		JFileChooser c = new JFileChooser();
 		
-		int rVal = c.showOpenDialog(null);
-		if(rVal == JFileChooser.APPROVE_OPTION) {
+		int val = c.showOpenDialog(null);
+		if(val == JFileChooser.APPROVE_OPTION) {
 			fileName = c.getSelectedFile().getName();
 		
 		}
-		if(rVal == JFileChooser.CANCEL_OPTION) {
-			return;
-		}
-		if(fileName == null){
+		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
 		}
 		File f = c.getSelectedFile();
@@ -181,9 +174,6 @@ public class Dialog{
 				Finestra.frame.setNumOfThreadLabel(String.valueOf(Finestra.numOfThreads));
 				
 				
-			}
-			catch(EOFException e){
-				JOptionPane.showConfirmDialog(null, "Caricamento completato");		
 			}
 			finally{;}
 			inStream.close();
