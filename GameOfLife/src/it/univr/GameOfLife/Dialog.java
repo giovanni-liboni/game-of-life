@@ -107,7 +107,7 @@ public class Dialog{
 				
 		JFileChooser c = new JFileChooser();
 
-		c.setFileFilter(new FileNameExtensionFilter("Save", "save"));
+		c.setFileFilter(new FileNameExtensionFilter("Save", "save", "sav"));
 		
 		int val = c.showOpenDialog(null);
 		
