@@ -108,11 +108,12 @@ public class Dialog{
 		
 		int val = c.showOpenDialog(null);
 		if(val == JFileChooser.APPROVE_OPTION) {
-			fileName = c.getSelectedFile().getName();		
+			fileName = c.getSelectedFile().getName();
 		}
 		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
 		}
+		
 		File f = c.getSelectedFile();
 		DataInputStream inStream;
 		try {
