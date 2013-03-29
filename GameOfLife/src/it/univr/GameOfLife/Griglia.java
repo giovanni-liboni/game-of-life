@@ -144,7 +144,7 @@ public class Griglia extends JPanel {
 							}
 							case 9:{
 								
-									campo.addLightweight(x, y);
+									campo.addLightweight(y, x);
 									array = campo.getArray();
 									setColor();
 								
@@ -152,7 +152,7 @@ public class Griglia extends JPanel {
 							}
 							case 10:{
 								  
-									campo.addShip(x, y);
+									campo.addShip(y, x);
 									array = campo.getArray();
 									setColor();
 								

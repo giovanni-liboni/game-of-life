@@ -104,6 +104,7 @@ public class Core {
 	 */
 	public void addCell(int row, int column){
 		setLifeFirstTrue(row,column);
+		first[realY(row)][realX(column)].setDeath(false);
 	}
 	/**
 	 * This method is used for generating the next cell's generation.
@@ -131,7 +132,7 @@ public class Core {
 	 * @param y
 	 * is used for knowing the exact cell's position.
 	 */
-	public void addShip(int x, int y){
+	public void addShip(int y, int x){
 		setLifeFirstTrue(y,x);
 		setLifeFirstTrue(y,x-2);
 		setLifeFirstTrue(y,x-1);
@@ -223,13 +224,13 @@ public class Core {
 	 * is used for knowing the exact cell's position.
 	 */
 	public void addLoaf(int y, int x){
-		setLifeFirstTrue(y,x-1);
-		setLifeFirstTrue(y+1,x);
-		setLifeFirstTrue(y-1,x);
+		setLifeFirstTrue(y,x);
+		setLifeFirstTrue(y+1,x-1);
+		setLifeFirstTrue(y+2,x);
 		setLifeFirstTrue(y-1,x+1);
-		setLifeFirstTrue(y-2,x+1);
+		setLifeFirstTrue(y+2,x+1);
 		setLifeFirstTrue(y,x+2);
-		setLifeFirstTrue(y-1,x+2);
+		setLifeFirstTrue(y+1,x+2);
 	}
 	/**
 	 * This method is used for adding a LightWeight into game grid.
@@ -238,7 +239,7 @@ public class Core {
 	 * @param x
 	 * is used for knowing the exact cell's position.
 	 */
-	public void addLightweight (int x, int y){	
+	public void addLightweight (int y, int x){	
 			setLifeFirstTrue(y-1,x-2);
 			setLifeFirstTrue(y-1,x+1);
 			setLifeFirstTrue(y+1,x-2);
@@ -248,32 +249,32 @@ public class Core {
 	}
 	/**
 	 * This method is used for adding a Pulsar into game grid
-	 * @param y_
+	 * @param y
 	 * is used for knowing the exact cell's position
-	 * @param x_
+	 * @param x
 	 * is used for knowing the exact cell's position
 	 */
-	public void addPulsar(int y_, int x_){
+	public void addPulsar(int y, int x){
 
-			this.addBlinkerHorizontal(y_-1, x_+3);
-			this.addBlinkerHorizontal(y_-6, x_+3);
-			this.addBlinkerVertical(y_-3, x_+1);
-			this.addBlinkerVertical(y_-3, x_+6);
+			this.addBlinkerHorizontal(y-1, x+3);
+			this.addBlinkerHorizontal(y-6, x+3);
+			this.addBlinkerVertical(y-3, x+1);
+			this.addBlinkerVertical(y-3, x+6);
 			
-			this.addBlinkerHorizontal(y_+1, x_+3);
-			this.addBlinkerHorizontal(y_+6, x_+3);
-			this.addBlinkerVertical(y_+3, x_+1);
-			this.addBlinkerVertical(y_+3, x_+6);
+			this.addBlinkerHorizontal(y+1, x+3);
+			this.addBlinkerHorizontal(y+6, x+3);
+			this.addBlinkerVertical(y+3, x+1);
+			this.addBlinkerVertical(y+3, x+6);
 			
-			this.addBlinkerHorizontal(y_-1, x_-3);
-			this.addBlinkerHorizontal(y_-6, x_-3);
-			this.addBlinkerVertical(y_-3, x_-1);
-			this.addBlinkerVertical(y_-3, x_-6);
+			this.addBlinkerHorizontal(y-1, x-3);
+			this.addBlinkerHorizontal(y-6, x-3);
+			this.addBlinkerVertical(y-3, x-1);
+			this.addBlinkerVertical(y-3, x-6);
 			
-			this.addBlinkerHorizontal(y_+1, x_-3);
-			this.addBlinkerHorizontal(y_+6, x_-3);
-			this.addBlinkerVertical(y_+3, x_-1);
-			this.addBlinkerVertical(y_+3, x_-6);
+			this.addBlinkerHorizontal(y+1, x-3);
+			this.addBlinkerHorizontal(y+6, x-3);
+			this.addBlinkerVertical(y+3, x-1);
+			this.addBlinkerVertical(y+3, x-6);
 	}
 	/**
 	 * This method is used for adding a Glider into game grid

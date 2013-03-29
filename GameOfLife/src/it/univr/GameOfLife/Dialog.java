@@ -179,13 +179,13 @@ public class Dialog{
 			inStream.close();
 			
 		} 
-		catch (FileNotFoundException e) {
-			JOptionPane.showConfirmDialog(null, "File non trovato", "Attenzione!", JOptionPane.ERROR_MESSAGE);
-		} 
-		catch (IOException e) {
-			JOptionPane.showConfirmDialog(null, "Caricamento non riuscito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
-			
-		}
+//		catch (FileNotFoundException e) {
+//			JOptionPane.showConfirmDialog(null, "File non trovato", "Attenzione!", JOptionPane.ERROR_MESSAGE);
+//		} 
+//		catch (IOException e) {
+//			JOptionPane.showConfirmDialog(null, "Caricamento non riuscito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
+//			
+//		}
 		catch (Exception e) {
 		JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 		}
