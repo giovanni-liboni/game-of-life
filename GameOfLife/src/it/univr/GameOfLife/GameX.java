@@ -187,7 +187,7 @@ public class GameX extends JFrame {
 	 * @return
 	 * returns the number of threads of the label
 	 */
-	cicciociccio
+	dacancellare
 //	public JLabel getNumOfThreadLabel() {
 //		return numOfThreadLabel;
 //	}
@@ -204,7 +204,7 @@ public class GameX extends JFrame {
 	 * @return
 	 * returns the current generation Label.
 	 */
-	cicciociccio
+	dacancellare
 //	public JLabel getContGenLabel() {
 //		return contGenLabel;
 //	}
