@@ -41,19 +41,6 @@ public class Core {
 		return first[y][x].isDeath();
 	}
 	/**
-	 * This method is used for taking informations about cell's life.
-	 * @param y
-	 * is used for knowing the position of cell.
-	 * @param x
-	 * is used for knowing the position of cell.
-	 * @return
-	 * returns cell's life status.
-	 */
-	cicciociccio
-//	public boolean isLife(int y, int x){
-//		return first[y][x].isLife();
-//	}
-	/**
 	 * This method transforms an array of boolean into an array of cells.
 	 * @param init
 	 * is used for setting cell's life status.
@@ -108,20 +95,6 @@ public class Core {
 			first[row][column].setLife(false);
 		}
 	}
-	/**
-	 * This method is used for killing a cell.
-	 * @param row
-	 * is used for knowing the exact cell's position.
-	 * @param column
-	 * is used for knowing the exact cell's position.
-	 */
-	cicciociccio
-//	public void killCell(int row, int column){
-//		if(first[row][column] != null){
-//			first[row][column].setLife(false);
-//		}
-//		
-//	}
 	/**
 	 * This method is used for adding a cell.
 	 * @param row
@@ -258,37 +231,6 @@ public class Core {
 		setLifeFirstTrue(y,x+2);
 		setLifeFirstTrue(y-1,x+2);
 	}
-	/**
-	 * This method is used for adding a Pulsar into game grid.
-	 * @param y
-	 * is used for knowing the exact cell's position.
-	 * @param x
-	 * is used for knowing the exact cell's position.
-	 */
-	cicciociccio
-//	public void addMyPulsar(int y, int x){
-//			
-//			this.addBlinkerHorizontal(y-1, x+3);
-//			this.addBlinkerHorizontal(y-6, x+3);
-//			this.addBlinkerVertical(y-3, x+1);
-//			this.addBlinkerVertical(y-3, x+5);
-//			
-//			this.addBlinkerHorizontal(y+1, x+3);
-//			this.addBlinkerHorizontal(y+6, x+3);
-//			this.addBlinkerVertical(y+3, x+1);
-//			this.addBlinkerVertical(y+3, x+5);
-//			
-//			this.addBlinkerHorizontal(y-1, x-3);
-//			this.addBlinkerHorizontal(y-6, x-3);
-//			this.addBlinkerVertical(y-3, x-1);
-//			this.addBlinkerVertical(y-3, x-5);
-//			
-//			this.addBlinkerHorizontal(y+1, x-3);
-//			this.addBlinkerHorizontal(y+6, x-3);
-//			this.addBlinkerVertical(y+3, x-1);
-//			this.addBlinkerVertical(y+3, x-5);
-//			
-//	}
 	/**
 	 * This method is used for adding a LightWeight into game grid.
 	 * @param y
