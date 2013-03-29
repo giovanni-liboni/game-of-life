@@ -49,6 +49,7 @@ public class Core {
 	 * @return
 	 * returns cell's life status.
 	 */
+	cicciociccio
 //	public boolean isLife(int y, int x){
 //		return first[y][x].isLife();
 //	}
@@ -114,6 +115,7 @@ public class Core {
 	 * @param column
 	 * is used for knowing the exact cell's position.
 	 */
+	cicciociccio
 //	public void killCell(int row, int column){
 //		if(first[row][column] != null){
 //			first[row][column].setLife(false);
@@ -263,6 +265,7 @@ public class Core {
 	 * @param x
 	 * is used for knowing the exact cell's position.
 	 */
+	cicciociccio
 //	public void addMyPulsar(int y, int x){
 //			
 //			this.addBlinkerHorizontal(y-1, x+3);
