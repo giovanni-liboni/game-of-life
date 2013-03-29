@@ -1,7 +1,9 @@
 package it.univr.GameOfLife;
 
 import java.io.*;
+
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Dialog{
 	/**
@@ -45,13 +47,15 @@ public class Dialog{
 		
 		String
 			fileName = "";
-		
+				
 		JFileChooser c = new JFileChooser();
+		
+		c.setFileFilter(new FileNameExtensionFilter("Save", "save"));
 		
 		int val = c.showSaveDialog(null);
 		if(val == JFileChooser.APPROVE_OPTION) {
 			fileName = c.getSelectedFile().getName();
-		}
+			}
 		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
 		}
@@ -80,6 +84,7 @@ public class Dialog{
 			}
 			
 			outStream.close();
+			JOptionPane.showMessageDialog(null, "File: "+fileName+ " saved.", "Message", JOptionPane.INFORMATION_MESSAGE);
 			
 		}
 		catch (IOException e) {
@@ -96,13 +101,14 @@ public class Dialog{
 		int temp;
 		String
 			fileName = "";
-		
+				
 		JFileChooser c = new JFileChooser();
+
+		c.setFileFilter(new FileNameExtensionFilter("Save", "save"));
 		
 		int val = c.showOpenDialog(null);
 		if(val == JFileChooser.APPROVE_OPTION) {
-			fileName = c.getSelectedFile().getName();
-		
+			fileName = c.getSelectedFile().getName();		
 		}
 		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
@@ -172,20 +178,13 @@ public class Dialog{
 				
 			    Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
 				Finestra.frame.setNumOfThreadLabel(String.valueOf(Finestra.numOfThreads));
-				
+				JOptionPane.showMessageDialog(null, "File: "+fileName+ " loaded.", "Message", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 			finally{;}
 			inStream.close();
 			
 		} 
-//		catch (FileNotFoundException e) {
-//			JOptionPane.showConfirmDialog(null, "File non trovato", "Attenzione!", JOptionPane.ERROR_MESSAGE);
-//		} 
-//		catch (IOException e) {
-//			JOptionPane.showConfirmDialog(null, "Caricamento non riuscito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
-//			
-//		}
 		catch (Exception e) {
 		JOptionPane.showConfirmDialog(null, "Caricamento fallito", "Attenzione!", JOptionPane.DEFAULT_OPTION);
 		}
