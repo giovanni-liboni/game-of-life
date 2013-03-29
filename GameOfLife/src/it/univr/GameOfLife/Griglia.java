@@ -69,7 +69,6 @@ public class Griglia extends JPanel {
 			case 2: this.deathColor = setSelectedColor;
 		}
 	}
-	// implemento l'action listener per i pulsanti
 	/**
 	 * This method sets the value into ActionListenerMode, used for adding or killing cells.
 	 * @param actionListenerMode
@@ -80,7 +79,7 @@ public class Griglia extends JPanel {
 	}
 	/**
 	 * This method is invoked for killing is adding cells, it uses
-	 * actionListenerMode that was setted by setActionListenerMode(int actionListenerMode).
+	 * actionListenerMode that was set by setActionListenerMode(int actionListenerMode).
 	 */
 	private ActionListener kill = new ActionListener(){
 				@Override

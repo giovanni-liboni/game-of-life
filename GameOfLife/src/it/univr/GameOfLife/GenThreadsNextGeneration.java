@@ -49,7 +49,7 @@ public class GenThreadsNextGeneration{
 		waitForThreadsToFinish(slaves);
 		/*
 		 * Copio i due array, in questo modo la versione definitiva
-		 * sarï¿½ in first
+		 * sarà in first
 		 */
 		first = last;
 	}
@@ -82,7 +82,7 @@ public class GenThreadsNextGeneration{
 			finally{;}
 	}
 	/**
-	 * This method is used for starting every single thread for the rispective work.
+	 * This method is used for starting every single thread for the respective work.
 	 */
 	private class SingleThread extends Thread{
 		int yThread;

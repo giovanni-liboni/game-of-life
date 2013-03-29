@@ -4,14 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JColorChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.WindowConstants;
-
-@SuppressWarnings("serial")
 public class ColorChanger extends JFrame{
 	/**
 	 * Used for creating a new frame with a custom title.

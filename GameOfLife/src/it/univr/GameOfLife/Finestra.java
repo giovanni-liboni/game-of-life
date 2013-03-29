@@ -378,7 +378,7 @@ public class Finestra extends JFrame{
 	/**
 	 * This method is used for taking time on creating nextGen()
 	 * @param milliseconds
-	 * is taken from current value setted on slider
+	 * is taken from current value set on slider
 	 */
 	private static void sleepFor(int milliseconds) {
 		try {

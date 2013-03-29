@@ -1,15 +1,7 @@
 package it.univr.GameOfLife;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+import java.io.*;
+import javax.swing.*;
 
 public class Dialog{
 	/**
@@ -37,7 +29,7 @@ public class Dialog{
 			}
 			while(numOfThreads < 0);
 		
-		// modifico il numero di threads
+		
 		Finestra.numOfThreads = numOfThreads;
 	}
 	/**
@@ -143,12 +135,11 @@ public class Dialog{
 					max = temp;
 				if(!statusFile)
 					inStream.readChar();
-				// contGen
+
 				Finestra.contGen = inStream.readInt();
 				if(!statusFile)
 					inStream.readChar();
 				
-				//numOfThreads
 				Finestra.numOfThreads = inStream.readInt();
 				if(!statusFile)
 					inStream.readChar();
@@ -169,7 +160,7 @@ public class Dialog{
 				
 				campo = new Core(Finestra.numOfThreads, array);
 				
-				// uccido le cellule
+				
 				if(statusFile){
 				for(int y=0; y< max;y++){
 					for(int x=0; x < max;x++){

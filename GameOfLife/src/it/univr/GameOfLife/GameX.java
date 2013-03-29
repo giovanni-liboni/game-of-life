@@ -22,10 +22,6 @@ public class GameX extends JFrame {
 	 * This instantiate the JLabels that will be in the south panel.
 	 */
 	private JLabel numOfThreadLabel,contGenLabel;
-	/*
-	 * Bisogna rendere private i menu
-	 * - Aggiungere i metodi necessari
-	 */
 	/**
 	 * This Method Creates an array of JMenu[], which is used in JMenuBar.
 	 */
