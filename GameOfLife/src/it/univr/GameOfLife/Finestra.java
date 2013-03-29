@@ -338,7 +338,10 @@ public class Finestra extends JFrame{
 		        	 ++contGen;
 		        	 frame.setContGenLabel(String.valueOf(contGen));
 		        	 sleepFor((500 - frame.getSlider().getValue()));
-		             SwingUtilities.invokeAndWait(doNextGen);
+		        	 synchronized (this) {
+		        		  SwingUtilities.invokeAndWait(doNextGen);
+					}
+		           
 		         }
 		         catch (Exception e) {}
 		         finally{;}
@@ -353,8 +356,8 @@ public class Finestra extends JFrame{
 	final Runnable doNextGen = new Runnable() {
 	     public void run() {
 	    	 if(gameStatus){
-	        	 panel.nextGen(numOfThreads);
-	    		 disegna();
+	    			panel.nextGen(numOfThreads);
+	    			disegna();
 	    	 }
 	     }
 	 };

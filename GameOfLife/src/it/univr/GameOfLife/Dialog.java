@@ -59,6 +59,9 @@ public class Dialog{
 		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
 		}
+		if(val == JFileChooser.ERROR_OPTION){
+			return;
+		}
 		File f = c.getSelectedFile();
 		
 		try {
@@ -107,13 +110,16 @@ public class Dialog{
 		c.setFileFilter(new FileNameExtensionFilter("Save", "save"));
 		
 		int val = c.showOpenDialog(null);
+		
 		if(val == JFileChooser.APPROVE_OPTION) {
 			fileName = c.getSelectedFile().getName();
 		}
 		if(val == JFileChooser.CANCEL_OPTION) {
 			return;
 		}
-		
+		if(val == JFileChooser.ERROR_OPTION){
+			return;
+		}
 		File f = c.getSelectedFile();
 		DataInputStream inStream;
 		try {
