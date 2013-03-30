@@ -2,11 +2,11 @@ package it.univr.GameOfLife;
 
 public class Core {
 	/**
-	 * Creates a new Cell array of cells.
+	 * This is an array of cells.
 	 */
 	private Cell first[][];
 	/** 
-	 * This method creates a new field using:
+	 * This constructor creates a new field using:
 	 * @param numOfThreads
 	 * is used for calculating a new casual array
 	 * @param size
@@ -18,7 +18,7 @@ public class Core {
 		arrayToCell(gen.getArray());		
 	}
 	/** 
-	 * This method creates a new field using:
+	 * This constructor creates a new field using:
 	 * @param numOfThreads
 	 * is used for obtaining the number of threads used for calculating the game field array.
 	 * @param init

@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Finestra extends JFrame{
 	/**
-	 * Creates a new instance of Dialog called "dialog".
+	 * This is an object containing the external windows.
 	 */
 	private Dialog dialog;
 	/**
@@ -18,27 +18,27 @@ public class Finestra extends JFrame{
 	 */
 	protected static boolean gameStatus; // if true -> start else pause
 	/**
-	 * Creates a new instance of GameX called "frame".
+	 * This is the object of the window.
 	 */
 	protected static GameX frame;
 	/**
-	 * Creates a new instance of Griglia called "panel".
+	 * This is the object containing the world.
 	 */
 	protected static Griglia panel;
 	/**
-	 * Used for setting default values (number of threads, dimension and game generation counter).
+	 * Variables used for number of threads, dimension and game generation counter.
 	 */
 	protected static int 
 		numOfThreads=1,
 		dim=60,
 		contGen=0;
 	/**
-	 * Creates a new instance of Container called "cont".
+	 * This is the windows's container.
 	 */
 	protected static Container cont;
 
 	/**
-	 * This method is used for showing threads setter frame,
+	 * This constructor is used for showing threads setter frame,
 	 * and then creates game main window
 	 */
 	public Finestra(){
