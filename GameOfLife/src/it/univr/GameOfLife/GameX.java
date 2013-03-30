@@ -5,19 +5,19 @@ import java.awt.*;
 
 public class GameX extends JFrame {
 	/**
-	 * This instantiates two panels in main game window.
+	 * Instantiates two panels in main game window.
 	 */
 	private JPanel up, down;
 	/**
-	 * This instantiates the JMenuBar.
+	 * Instantiates the JMenuBar.
 	 */
 	private JMenuBar barraDeiMenu;
 	/**
-	 * This instantiates the JSlider that will configure game speed.
+	 * Instantiates the JSlider that will configure game speed.
 	 */
 	private JSlider slider;
 	/**
-	 * This instantiate the JLabels that will be in the south panel.
+	 * Instantiate the JLabels that will be in the south panel.
 	 */
 	private JLabel numOfThreadLabel,contGenLabel;
 	/**
@@ -79,7 +79,7 @@ public class GameX extends JFrame {
 				new JButton("Next")
 	};
 	/**
-	 * This method is used for creating main game's frame (game grid).
+	 * This constructor is used for creating main game's frame (game grid).
 	 * @param numOfThreads
 	 * is used for parsing the number of threads used for creating the main game grid.
 	 */

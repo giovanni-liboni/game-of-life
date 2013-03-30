@@ -145,7 +145,7 @@ public class Griglia extends JPanel {
 				}
 	};
 	/**
-	 * This method builds the grid.
+	 * This constructor builds the grid.
 	 * @param campo
 	 * is used for taking information about length and settings of current game field.
 	 */

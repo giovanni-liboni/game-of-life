@@ -64,7 +64,7 @@ public class GenThreadsCasualArray{
 				finally{;}
 		}
 	/**
-	 * This method is used for starting every single thread for the rispective work.
+	 * This method is used for starting every single thread for the respective work.
 	 */
 	private class SingleThread extends Thread{
 			private int yThread;
