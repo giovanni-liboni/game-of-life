@@ -15,7 +15,7 @@ public class ColorChanger extends JFrame{
 	 */
 	private Container changeContainer = changeColor.getContentPane();
 	/**
-	 * This method is used for creating a new frame, which contains the color selection for life, no-life and death status.
+	 * This constructor is used for creating a new frame, which contains the color selection for life, no-life and death status.
 	 * There's also a random button, which choose randomly a new color set (and meanwhile sets it to the game frame), a set button
 	 * (self-understanding, it also close ColorChanger's frame), and a default button that sets cell's colors to the 
 	 * default value (blue to life, white to no-life and red to death).

@@ -21,7 +21,7 @@ public class GameX extends JFrame {
 	 */
 	private JLabel numOfThreadLabel,contGenLabel;
 	/**
-	 * This Method Creates an array of JMenu[], which is used in JMenuBar.
+	 * This is an array of JMenu[], which is used in JMenuBar.
 	 */
 	final JMenu[] menu = {
 			new JMenu("Menu"),//0
@@ -33,7 +33,7 @@ public class GameX extends JFrame {
 			new JMenu("?")//6
 	};
 	/**
-	 * This method creates an array of JMenuItem that will be included in JMenu's array.
+	 * This is an array of JMenuItem that will be included in JMenu's array.
 	 */
 	final JMenuItem[] 
 		menuItem0 ={
@@ -69,7 +69,7 @@ public class GameX extends JFrame {
 				new JMenuItem("?")//18
 		};
 	/**
-	 * This method creates the button, that will be under JMenuBar, exactly in the north section of
+	 * This is an array of buttons, that will be under JMenuBar, exactly in the north section of
 	 * main frame's BorderLayout
 	 */
 	final JButton[] buttons = {
