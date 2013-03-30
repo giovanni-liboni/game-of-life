@@ -64,7 +64,9 @@ public class Dialog{
 		File f = c.getSelectedFile();
 		
 		try {
-		
+			
+			Finestra.pause();
+			
 			DataOutputStream outStream = new DataOutputStream(new FileOutputStream(f));
 			
 			int max = campo.getArray().length;
@@ -130,6 +132,7 @@ public class Dialog{
 			boolean [][] death = null;
 			int max;
 			try{
+				Finestra.pause();
 				
 				temp = inStream.readInt();
 				
@@ -180,7 +183,7 @@ public class Dialog{
 				Finestra.cont.add(Finestra.panel);
 				Finestra.panel.setVisible(false);
 				Finestra.panel.setVisible(true);          
-				Finestra.gameStatus = false;
+
 				
 			    Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
 				Finestra.frame.setNumOfThreadLabel(String.valueOf(Finestra.numOfThreads));
@@ -219,22 +222,19 @@ public class Dialog{
 				
 			}
 			while(dim < 0);
-			if(str!=null)
-			{
-			Finestra.dim = dim;
-			Finestra.cont.remove(Finestra.panel);
-			Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));
-			Finestra.cont.add(Finestra.panel);
-			Finestra.panel.setVisible(false);
-		 	Finestra.panel.setVisible(true);
-			Finestra.frame.repaint();
-
-			Finestra. contGen = 0;
-			Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
-			Finestra. gameStatus = false;
-			}
-			else
-			{}
+			if(str!=null){
+					Finestra.pause();
+					Finestra.dim = dim;
+					Finestra.cont.remove(Finestra.panel);
+					Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));
+					Finestra.cont.add(Finestra.panel);
+					Finestra.panel.setVisible(false);
+				 	Finestra.panel.setVisible(true);
+					Finestra.frame.repaint();
+		
+					Finestra. contGen = 0;
+					Finestra.frame.setContGenLabel(String.valueOf(Finestra.contGen));
+				}
 	}
 	/**
 	 * This method is used for showing informations about the author of this game.

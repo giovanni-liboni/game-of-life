@@ -10,6 +10,10 @@ public class Finestra extends JFrame{
 	 */
 	private Dialog dialog;
 	/**
+	 * It's used for setting the status of the game. If true the game starts, else do nothing.
+	 */
+	private static boolean startFlag=true;
+	/**
 	 * It's used for setting the status of the game. If true the game starts, else stops.
 	 */
 	protected static boolean gameStatus; // if true -> start else pause
@@ -242,7 +246,10 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							start();
+							if(startFlag){
+								startFlag=false;
+								start();	
+							}
 							}
 					},
 			
@@ -251,7 +258,7 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							gameStatus = false;
+							pause();
 						}
 					},
 			
@@ -262,7 +269,7 @@ public class Finestra extends JFrame{
 						public void actionPerformed(ActionEvent arg0) {
 							contGen = 0;
 							frame.setContGenLabel(String.valueOf(contGen));
-							gameStatus = false;
+							pause();
 							reset();
 							
 						}
@@ -358,6 +365,13 @@ public class Finestra extends JFrame{
 	 */
 	private void disegna(){
 		panel.setColor();
+	}
+	/**
+	 * This method pauses the game;
+	 */
+	protected static void pause(){
+		gameStatus=false;
+		startFlag=true;
 	}
 	/**
 	 * This method is used for taking time on creating nextGen()
