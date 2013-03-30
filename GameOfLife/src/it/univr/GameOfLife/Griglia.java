@@ -2,11 +2,8 @@ package it.univr.GameOfLife;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
-
-@SuppressWarnings("serial")
 public class Griglia extends JPanel {
 	/**
 	 * Instantiates the main game boolean array.
@@ -40,35 +37,6 @@ public class Griglia extends JPanel {
 	 * Instantiates the default dead grid color. (red)
 	 */
 	private Color deathColor = Color.RED;
-	/**
-	 * This method is used for getting the current grid color.
-	 * @param whatColor
-	 * used for asking for a specific color (0=life,1=nolife,2=death)
-	 * @return
-	 * the default color requested.
-	 */
-	public Color getColor(int whatColor){
-		switch(whatColor){
-			case 0: return this.lifeColor;
-			case 1: return this.noLifeColor;
-			case 2: return this.deathColor;
-			default: return null;
-		}
-	}
-	/**
-	 * This method is used for setting the selected grid color.
-	 * @param whatColor
-	 * used for setting a specific color (0=life,1=nolife,2=death)
-	 * @param setSelectedColor
-	 * used for setting the specific color (rgb).
-	 */
-	public void setGridColor(int whatColor, Color setSelectedColor){
-		switch(whatColor){
-			case 0: this.lifeColor = setSelectedColor;
-			case 1: this.noLifeColor = setSelectedColor;
-			case 2: this.deathColor = setSelectedColor;
-		}
-	}
 	/**
 	 * This method sets the value into ActionListenerMode, used for adding or killing cells.
 	 * @param actionListenerMode
@@ -222,8 +190,8 @@ public class Griglia extends JPanel {
 	 * blue for cells with life and red for dead cells.
 	 */
 	public void setColor(){		
-		for(int y=0; y< max;y++){
-			for(int x=0; x < max;x++){
+		for(int y=0; y< max;++y){
+			for(int x=0; x < max;++x){
 				if(campo.isDeath(y, x)){
 					buttons[y][x].setBackground(deathColor);
 				}
@@ -252,6 +220,35 @@ public class Griglia extends JPanel {
 	public void nextGen(int numOfThreads){
 		campo.nextGenerationThreads(numOfThreads);
 		this.array = campo.getArray();
+	}
+	/**
+	 * This method is used for getting the current grid color.
+	 * @param whatColor
+	 * used for asking for a specific color (0=life,1=nolife,2=death)
+	 * @return
+	 * the default color requested.
+	 */
+	public Color getColor(int whatColor){
+		switch(whatColor){
+			case 0: return this.lifeColor;
+			case 1: return this.noLifeColor;
+			case 2: return this.deathColor;
+			default: return null;
+		}
+	}
+	/**
+	 * This method is used for setting the selected grid color.
+	 * @param whatColor
+	 * used for setting a specific color (0=life,1=nolife,2=death)
+	 * @param setSelectedColor
+	 * used for setting the specific color (rgb).
+	 */
+	public void setGridColor(int whatColor, Color setSelectedColor){
+		switch(whatColor){
+			case 0: this.lifeColor = setSelectedColor;
+			case 1: this.noLifeColor = setSelectedColor;
+			case 2: this.deathColor = setSelectedColor;
+		}
 	}
 	/**
 	 * This method is used for taking information about current game field.

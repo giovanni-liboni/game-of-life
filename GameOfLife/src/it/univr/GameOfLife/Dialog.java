@@ -1,9 +1,8 @@
 package it.univr.GameOfLife;
 
 import java.io.*;
-
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.*;
 
 public class Dialog{
 	/**

@@ -73,10 +73,10 @@ public class GenThreadsCasualArray{
 				do{
 					synchronized(GenThreadsCasualArray.this){
 						yThread=y;
-						y++;
+						++y;
 					}
 					if(yThread < array.length)
-						for(int x=0; x < array[0].length;x++){
+						for(int x=0; x < array[0].length;++x){
 							array[yThread][x] = random.nextBoolean();
 					}
 				}

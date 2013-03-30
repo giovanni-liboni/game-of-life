@@ -2,7 +2,6 @@ package it.univr.GameOfLife;
 
 import javax.swing.JButton;
 
-@SuppressWarnings("serial")
 public class Button extends JButton{
 	/**
 	 * Used for setting rows and columns grid of main game frame.

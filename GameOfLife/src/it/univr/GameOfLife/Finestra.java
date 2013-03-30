@@ -2,10 +2,8 @@ package it.univr.GameOfLife;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
-@SuppressWarnings("serial")
 public class Finestra extends JFrame{
 	/**
 	 * Creates a new instance of Dialog called "dialog".
@@ -43,37 +41,24 @@ public class Finestra extends JFrame{
 		
 		dialog = new Dialog();
 		
-		/* Creo la finestra iniziale e aggiorno il numero di threads
-		 * da usare
-		 */
 		dialog.numOfThreads();
-		
-		/* Creo il frame*/
 		
 		frame = new GameX(numOfThreads);
 		
-		// aggiorno il numero di threads per l'interfaccia
-		
 		frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
-			
-		/*Creo il JPanel per il campo delle cellule	 */
-		
+
 		cont = frame.getContentPane();
 		panel = new Griglia(new Core(numOfThreads,dim));
 		cont.add(panel);
-		
 		frame.setVisible(true);
 		
-		// Assegno i menï¿½
 		assegnaMenu();
 		
-	} // fine costruttore Finestra
+	}
 	/**
 	 * Creates ActionListener and sets it on every button and menu item
 	 */
 	public void assegnaMenu(){
-		
-		/* Creo un array listener per il menï¿½*/
 		
 		ActionListener[] 
 				ActionListenerMenuItem0 = {
@@ -257,7 +242,6 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
-							
 							start();
 							}
 					},
@@ -297,7 +281,7 @@ public class Finestra extends JFrame{
 					}
 			};
 		
-		// Assegno i listener al menï¿½
+		// Assegno i listener al menù
 		
 		for (int i = 0; i < ActionListenerMenuItem0.length; ++i){
 			frame.menuItem0[i].addActionListener(ActionListenerMenuItem0[i]);

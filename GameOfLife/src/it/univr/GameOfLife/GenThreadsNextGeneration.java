@@ -91,7 +91,7 @@ public class GenThreadsNextGeneration{
 			do{
 				synchronized(GenThreadsNextGeneration.this){
 					yThread=y;
-					y++;
+					++y;
 				}
 				if(yThread < first.length)
 					calcoloRiga(yThread);

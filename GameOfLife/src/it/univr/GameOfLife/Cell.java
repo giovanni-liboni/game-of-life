@@ -1,6 +1,5 @@
 package it.univr.GameOfLife;
 
-
 public class Cell {
 	/**
 	 * Used for setting life and death status of a cell.

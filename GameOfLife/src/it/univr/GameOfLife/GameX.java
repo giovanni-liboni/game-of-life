@@ -1,10 +1,8 @@
 package it.univr.GameOfLife;
 
 import javax.swing.*;
-
 import java.awt.*;
 
-@SuppressWarnings("serial")
 public class GameX extends JFrame {
 	/**
 	 * This instantiates two panels in main game window.
@@ -94,11 +92,11 @@ public class GameX extends JFrame {
 	
 		Dimension dimensioniSchermo = mioToolkit.getScreenSize();
 
-		int larghezzaFrame;
+		int dimFrame;
 		
-		larghezzaFrame = (int) (dimensioniSchermo.getWidth()/2+50);
+		dimFrame = (int) (dimensioniSchermo.getWidth()/2+50);
 
-		setSize(larghezzaFrame, larghezzaFrame);
+		setSize(dimFrame, dimFrame);
 
 		
 		/* Creo il menu */
@@ -146,25 +144,30 @@ public class GameX extends JFrame {
 		up.add(buttons[2], JPanel.CENTER_ALIGNMENT);
 		up.add(buttons[3], JPanel.CENTER_ALIGNMENT);
 		add(up, BorderLayout.NORTH);
-		
-		/*Creo i componenti per la parte sud*/
-		//Creo lo slider
-		
+	
 		slider = new JSlider(JSlider.HORIZONTAL,0,500,50);
 		slider.setPaintLabels(true);
 		slider.setValue(250);
+		
 		// Creo il Label per la speed
+		
 		down = new JPanel();
 		down.add(new JLabel("Speed"));
+		
 		// Aggiungo lo slider
+		
 		down.add(slider);
 		down.add(new JLabel("                   "));
+		
 		// Creo il Label per le threads
+		
 		down.add(new JLabel("Numero di threads: "));
 		numOfThreadLabel = new JLabel(String.valueOf(numOfThreads));
 		down.add(numOfThreadLabel);
 		down.add(new JLabel("   "));
+		
 		// Creo il Label per il conteggio delle generazioni
+		
 		down.add(new JLabel("Generations: "));
 		contGenLabel = new JLabel(String.valueOf(0));
 		down.add(contGenLabel);
