@@ -132,7 +132,6 @@ public class Dialog{
 			boolean [][] death = null;
 			int max;
 			try{
-				Finestra.pause();
 				
 				temp = inStream.readInt();
 				
@@ -223,7 +222,6 @@ public class Dialog{
 			}
 			while(dim < 0);
 			if(str!=null){
-					Finestra.pause();
 					Finestra.dim = dim;
 					Finestra.cont.remove(Finestra.panel);
 					Finestra.panel = new Griglia(new Core(Finestra.numOfThreads,dim));

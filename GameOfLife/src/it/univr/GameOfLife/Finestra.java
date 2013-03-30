@@ -72,6 +72,7 @@ public class Finestra extends JFrame{
 					new ActionListener(){
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
+							pause();
 							dialog.fileOpen();		
 							disegna();
 					}
@@ -81,6 +82,7 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
+						pause();
 						dialog.fileSave(panel.getCampo(), contGen, numOfThreads);
 					}
 				},
@@ -91,6 +93,7 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
+						pause();
 						dialog.dimSet();
 						disegna();
 					}
@@ -101,6 +104,7 @@ public class Finestra extends JFrame{
 				new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
+						pause();
 						dialog.numOfThreads();
 						// aggiorno il numero di threads per l'interfaccia
 						frame.setNumOfThreadLabel(String.valueOf(numOfThreads));
@@ -123,6 +127,7 @@ public class Finestra extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					contGen = 0;
+					pause();
 					frame.setContGenLabel(String.valueOf(contGen));
 					panel.setCampo((new Core(numOfThreads,dim)));
 					disegna();
